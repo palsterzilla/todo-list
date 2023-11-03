@@ -37,4 +37,6 @@ const addToList = (model) => {
   model.add(title, detail, priority);
 }
 
-export { createList, addToList }
+const myList = createList();
+
+export { createList, addToList, myList }

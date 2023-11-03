@@ -1,6 +1,4 @@
-import { createList } from "./todoFunctions";
-
-const myList = createList();
+import { myList } from "./todoFunctions";
 
 const updatePage = () => {
   const itemList = myList.read();
@@ -47,4 +45,4 @@ const removeItem = (e) => {
   updatePage();
 }
 
-export { myList, updatePage };
+export { updatePage };

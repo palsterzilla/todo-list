@@ -1,5 +1,5 @@
-import { addToList } from "./functions/todoFunctions.js";
-import { myList, updatePage } from "./functions/renderPage.js";
+import { addToList, myList } from "./functions/todoFunctions.js";
+import { updatePage } from "./functions/renderPage.js";
 
 const showDialogBtn = document.getElementById('showDialog');
 const preventClose = document.getElementById("preventClose");

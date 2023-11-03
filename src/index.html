@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+</head>
+<body>
+  <dialog class="add-dialog" id="addDialog">
+    <div class="prevent-close" id="preventClose">
+      <form class="task-form" id="taskForm">
+        <h2>Add new task</h2>
+        <input class="required" id="title" type="text" placeholder="Title: Be happy" max="50" required>
+        <input class="required" id="detail" type="text" placeholder="Details: personal, home" max="50" required>
+        
+        <input class="required" id="lowPriority" type="radio" name="priority" required>
+        <label for="lowPriority">LOW</label>
+        <input class="required" id="mediumPriority" type="radio" name="priority">
+        <label for="mediumPriority">MEDIUM</label>
+        <input class="required" id="highPriority" type="radio" name="priority">
+        <label for="highPriority">HIGH</label>
+        
+        <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+      </form>
+    </div>
+  </dialog>
+
+  <button type="button" class="show-dialog" id="showDialog">+</button>
+  <div id="app">
+    <section class="main">
+      <ul class="todo-list" id="todoList"></ul>
+    </section>
+  </div>
+</body>
+</html>

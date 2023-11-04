@@ -39,8 +39,8 @@ const updatePage = () => {
   
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('destroy');
-    wrapper.append(deleteButton);
     deleteButton.addEventListener('click', removeItem);
+    wrapper.append(deleteButton);
   })
 }
 

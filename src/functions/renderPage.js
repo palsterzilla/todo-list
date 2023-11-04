@@ -1,4 +1,5 @@
 import { myList } from "./todoFunctions";
+import { format } from "date-fns";
 
 const updatePage = () => {
   const itemList = myList.read();
@@ -30,8 +31,8 @@ const updatePage = () => {
     wrapper.append(titleLabel);
 
     const deadLine = document.createElement('div');
-    deadLine.textContent = dueDate;
-    wrapper.append(dueDate);
+    deadLine.textContent = format(new Date(dueDate), 'MMM do');
+    wrapper.append(deadLine);
   
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('destroy');

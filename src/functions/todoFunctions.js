@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 const createList = () => {
   const list = { todos: [] }
 

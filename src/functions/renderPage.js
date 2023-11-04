@@ -20,23 +20,23 @@ const updatePage = () => {
     wrapper.classList.add('view');
     li.append(wrapper);
   
-    const input = document.createElement('input');
-    input.classList.add('toggle');
-    input.setAttribute('type', 'checkbox');
-    wrapper.append(input);
+    const isDoneCheck = document.createElement('input');
+    isDoneCheck.classList.add('toggle');
+    isDoneCheck.setAttribute('type', 'checkbox');
+    wrapper.append(isDoneCheck);
   
-    const label = document.createElement('label');
-    label.textContent = title;
-    wrapper.append(label);
+    const titleLabel = document.createElement('label');
+    titleLabel.textContent = title;
+    wrapper.append(titleLabel);
 
     const deadLine = document.createElement('div');
     deadLine.textContent = dueDate;
     wrapper.append(dueDate);
   
-    const button = document.createElement('button');
-    button.classList.add('destroy');
-    wrapper.append(button);
-    button.addEventListener('click', removeItem);
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('destroy');
+    wrapper.append(deleteButton);
+    deleteButton.addEventListener('click', removeItem);
   })
 }
 

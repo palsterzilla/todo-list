@@ -45,18 +45,14 @@ const updatePage = () => {
 }
 
 const removeItem = (e) => {
-  const el = e.target;
-  const li = el.parentNode.parentNode;
-  const id = +li.getAttribute('data-id');
-
+  const id = +e.target.closest('li').getAttribute('data-id');
+  
   myList.delete(id);
   updatePage();
 }
 
 const toggleItem = (e) => {
-  const el = e.target;
-  const li = el.parentNode.parentNode;
-  const id = +li.getAttribute('data-id');
+  const id = +e.target.closest('li').getAttribute('data-id');
 
   myList.toggle(id);
   updatePage();

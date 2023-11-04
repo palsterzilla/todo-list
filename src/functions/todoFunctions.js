@@ -1,3 +1,6 @@
+import { isDate } from "date-fns";
+import { is } from "date-fns/locale";
+
 const createList = () => {
   const list = { todos: [] }
 
@@ -24,6 +27,13 @@ const createList = () => {
       for (let i = 0, id = 1; i < list.todos.length; i++, id++) {
         list.todos[i].id = id;
       }
+    },
+    toggle(id) {
+      list.todos.find(item => {
+        if (item.id === id) {
+          item.isDone = !item.isDone;
+        }
+      })
     }
   }
 }

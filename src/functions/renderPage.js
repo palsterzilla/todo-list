@@ -11,6 +11,7 @@ const updatePage = () => {
     const id = item.id;
     const title = item.title;
     const dueDate = item.dueDate;
+    const isDone = item.isDone;
 
     const li = document.createElement('li');
     // li.classList.add('list');
@@ -24,6 +25,8 @@ const updatePage = () => {
     const isDoneCheck = document.createElement('input');
     isDoneCheck.classList.add('toggle');
     isDoneCheck.setAttribute('type', 'checkbox');
+    isDoneCheck.checked = isDone;
+    isDoneCheck.addEventListener('click', toggleItem);
     wrapper.append(isDoneCheck);
   
     const titleLabel = document.createElement('label');
@@ -48,6 +51,15 @@ const removeItem = (e) => {
 
   li.remove();
   myList.delete(id);
+  updatePage();
+}
+
+const toggleItem = (e) => {
+  const el = e.target;
+  const li = el.parentNode.parentNode;
+  const id = +li.getAttribute('data-id');
+
+  myList.toggle(id);
   updatePage();
 }
 

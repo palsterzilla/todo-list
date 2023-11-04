@@ -1,12 +1,15 @@
+import { format } from "date-fns";
+
 const createList = () => {
   const list = { todos: [] }
 
   return {
-    add(title, detail, priority) {
+    add(title, detail, dueDate, priority) {
       list.todos.push({
         id: list.todos.length + 1,
         title,
         detail,
+        dueDate,
         priority,
         isDone: false,
       });
@@ -30,11 +33,12 @@ const createList = () => {
 const addToList = (model) => {
   const title = document.getElementById('title').value;
   const detail = document.getElementById('detail').value;
+  const dueDate = document.getElementById('dueDate').value;
   const priority = document
     .querySelector('input[type=radio]:checked')
     .labels[0].textContent;
 
-  model.add(title, detail, priority);
+  model.add(title, detail, dueDate, priority);
 }
 
 const myList = createList();

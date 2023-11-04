@@ -9,28 +9,33 @@ const updatePage = () => {
   itemList.forEach(item => {
     const id = item.id;
     const title = item.title;
+    const dueDate = item.dueDate;
 
     const li = document.createElement('li');
     // li.classList.add('list');
     li.setAttribute('data-id', id);
     ul.append(li);
   
-    const div = document.createElement('div');
-    div.classList.add('view');
-    li.append(div);
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('view');
+    li.append(wrapper);
   
     const input = document.createElement('input');
     input.classList.add('toggle');
     input.setAttribute('type', 'checkbox');
-    div.append(input);
+    wrapper.append(input);
   
     const label = document.createElement('label');
     label.textContent = title;
-    div.append(label);
+    wrapper.append(label);
+
+    const deadLine = document.createElement('div');
+    deadLine.textContent = dueDate;
+    wrapper.append(dueDate);
   
     const button = document.createElement('button');
     button.classList.add('destroy');
-    div.append(button);
+    wrapper.append(button);
     button.addEventListener('click', removeItem);
   })
 }

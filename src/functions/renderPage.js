@@ -49,7 +49,6 @@ const removeItem = (e) => {
   const li = el.parentNode.parentNode;
   const id = +li.getAttribute('data-id');
 
-  li.remove();
   myList.delete(id);
   updatePage();
 }

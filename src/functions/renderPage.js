@@ -1,7 +1,7 @@
 import { myList } from "./todoFunctions";
 import { format } from "date-fns";
 
-const updatePage = () => {
+const renderList = () => {
   const itemList = myList.read();
   const ul = document.getElementById('todoList');
 
@@ -48,19 +48,19 @@ const updatePage = () => {
   })
 }
 
-const updateItem = (e) => {
+const renderItem = (e) => {
   const element = e.target;
   const id = +element.closest('li').getAttribute('data-id');
   
   if (element.hasAttribute('data-destroy')) {
     myList.delete(id);
-    updatePage();
+    renderList();
     
   } else if (element.hasAttribute('data-toggle')) {
     myList.toggle(id);
-    updatePage();
+    renderList();
     
   }
 }
 
-export { updatePage, updateItem };
+export { renderList, renderItem };

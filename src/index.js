@@ -1,5 +1,5 @@
 import { addToList, myList } from "./functions/todoFunctions.js";
-import { updatePage, updateItem } from "./functions/renderPage.js";
+import { renderList, renderItem } from "./functions/renderPage.js";
 
 const showDialogBtn = document.getElementById('showDialog');
 const preventClose = document.getElementById("preventClose");
@@ -25,10 +25,10 @@ preventClose.addEventListener('click', (e) => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   addToList(myList);
-  updatePage();
+  renderList();
   dialog.close();
 });
 
 list.addEventListener('click', (e) => {
-  updateItem(e);
+  renderItem(e);
 })

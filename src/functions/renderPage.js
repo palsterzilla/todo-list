@@ -25,6 +25,7 @@ const updatePage = () => {
     const isDoneCheck = document.createElement('input');
     isDoneCheck.classList.add('toggle');
     isDoneCheck.setAttribute('type', 'checkbox');
+    isDoneCheck.setAttribute('data-toggle', '');
     isDoneCheck.checked = isDone;
     wrapper.append(isDoneCheck);
   
@@ -38,6 +39,7 @@ const updatePage = () => {
   
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('destroy');
+    deleteButton.setAttribute('data-destroy', '');
     wrapper.append(deleteButton);
   })
 }
@@ -46,11 +48,11 @@ const updateItem = (e) => {
   const element = e.target;
   const id = +element.closest('li').getAttribute('data-id');
   
-  if (element.tagName === 'BUTTON') {
+  if (element.hasAttribute('data-destroy')) {
     myList.delete(id);
     updatePage();
     
-  } else if (element.tagName === 'INPUT') {
+  } else if (element.hasAttribute('data-toggle')) {
     myList.toggle(id);
     updatePage();
     

@@ -26,7 +26,6 @@ const updatePage = () => {
     isDoneCheck.classList.add('toggle');
     isDoneCheck.setAttribute('type', 'checkbox');
     isDoneCheck.checked = isDone;
-    isDoneCheck.addEventListener('click', toggleItem);
     wrapper.append(isDoneCheck);
   
     const titleLabel = document.createElement('label');
@@ -39,23 +38,23 @@ const updatePage = () => {
   
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('destroy');
-    deleteButton.addEventListener('click', removeItem);
     wrapper.append(deleteButton);
   })
 }
 
-const removeItem = (e) => {
-  const id = +e.target.closest('li').getAttribute('data-id');
+const updateItem = (e) => {
+  const element = e.target;
+  const id = +element.closest('li').getAttribute('data-id');
   
-  myList.delete(id);
-  updatePage();
+  if (element.tagName === 'BUTTON') {
+    myList.delete(id);
+    updatePage();
+    
+  } else if (element.tagName === 'INPUT') {
+    myList.toggle(id);
+    updatePage();
+    
+  }
 }
 
-const toggleItem = (e) => {
-  const id = +e.target.closest('li').getAttribute('data-id');
-
-  myList.toggle(id);
-  updatePage();
-}
-
-export { updatePage };
+export { updatePage, updateItem };

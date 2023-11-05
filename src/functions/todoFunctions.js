@@ -1,6 +1,3 @@
-import { isDate } from "date-fns";
-import { is } from "date-fns/locale";
-
 const createList = () => {
   const list = { todos: [] }
 

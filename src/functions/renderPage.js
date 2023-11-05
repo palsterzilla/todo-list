@@ -33,6 +33,10 @@ const updatePage = () => {
     titleLabel.textContent = title;
     wrapper.append(titleLabel);
 
+    const detailDiv = document.createElement('div');
+    detailDiv.textContent = 'DETAILS';
+    wrapper.append(detailDiv);
+
     const deadLine = document.createElement('div');
     deadLine.textContent = format(new Date(dueDate), 'MMM do');
     wrapper.append(deadLine);

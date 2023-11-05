@@ -29,7 +29,7 @@ const updatePage = () => {
     isDoneCheck.checked = isDone;
     wrapper.append(isDoneCheck);
   
-    const titleLabel = document.createElement('label');
+    const titleLabel = document.createElement('div');
     titleLabel.textContent = title;
     wrapper.append(titleLabel);
 

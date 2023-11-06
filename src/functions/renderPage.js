@@ -35,6 +35,7 @@ const renderList = () => {
 
     const detailDiv = document.createElement('div');
     detailDiv.textContent = 'DETAILS';
+    detailDiv.setAttribute('data-details', '');
     wrapper.append(detailDiv);
 
     const deadLine = document.createElement('div');
@@ -60,7 +61,18 @@ const renderItem = (e) => {
     myList.toggle(id);
     renderList();
     
-  }
+  } else if (element.hasAttribute('data-details')) {
+    toggleModal();
+
+  } 
 }
 
-export { renderList, renderItem };
+const toggleModal = () => {
+  const hiddensElm = document.querySelectorAll('[data-hidden]');
+
+  hiddensElm.forEach(elm => {
+    elm.classList.toggle('hidden');
+  })
+}
+
+export { renderList, renderItem, toggleModal };

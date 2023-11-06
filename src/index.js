@@ -1,11 +1,13 @@
 import { addToList, myList } from "./functions/todoFunctions.js";
-import { renderList, renderItem } from "./functions/renderPage.js";
+import { renderList, renderItem, toggleModal } from "./functions/renderPage.js";
+import './styles/modal.css';
 
 const showDialogBtn = document.getElementById('showDialog');
 const preventClose = document.getElementById("preventClose");
 const dialog = document.getElementById('addDialog');
 const form = document.getElementById('taskForm');
 const list = document.getElementById('todoList');
+const modalWrapper = document.getElementById('modalWrapper');
 
 showDialogBtn.addEventListener('click', () => {
   dialog.showModal();
@@ -31,4 +33,10 @@ form.addEventListener('submit', (e) => {
 
 list.addEventListener('click', (e) => {
   renderItem(e);
+})
+
+modalWrapper.addEventListener('click', (e) => {
+  if (e.target.id === 'closeModal' || e.target.id === 'overlay') {
+    toggleModal();
+  }
 })

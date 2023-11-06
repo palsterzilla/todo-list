@@ -42,6 +42,11 @@ const renderList = () => {
     deadLine.textContent = format(new Date(dueDate), 'MMM do');
     wrapper.append(deadLine);
   
+    const editButton = document.createElement('button');
+    editButton.classList.add('edit');
+    editButton.setAttribute('data-edit', '');
+    wrapper.append(editButton);
+
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('destroy');
     deleteButton.setAttribute('data-destroy', '');

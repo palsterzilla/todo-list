@@ -51,7 +51,7 @@ const renderList = () => {
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('destroy');
     deleteButton.setAttribute('data-destroy', '');
-    editButton.textContent = 'DELETE';
+    deleteButton.textContent = 'DELETE';
     wrapper.append(deleteButton);
   })
 }

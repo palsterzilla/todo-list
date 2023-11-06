@@ -45,11 +45,13 @@ const renderList = () => {
     const editButton = document.createElement('button');
     editButton.classList.add('edit');
     editButton.setAttribute('data-edit', '');
+    editButton.textContent = 'EDIT';
     wrapper.append(editButton);
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('destroy');
     deleteButton.setAttribute('data-destroy', '');
+    editButton.textContent = 'DELETE';
     wrapper.append(deleteButton);
   })
 }

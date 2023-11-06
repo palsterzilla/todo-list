@@ -63,7 +63,7 @@ const renderItem = (e) => {
     
   } else if (element.hasAttribute('data-details')) {
     toggleModal();
-
+    renderModal(e);
   } 
 }
 
@@ -72,6 +72,29 @@ const toggleModal = () => {
 
   hiddensElm.forEach(elm => {
     elm.classList.toggle('hidden');
+  })
+}
+
+const renderModal = (e) => {
+  const element = e.target;
+  const id = +element.closest('li').getAttribute('data-id');
+  const itemList = myList.read();
+  
+  itemList.filter(item => {
+    const popupTitle = document.getElementById('popupTitle');
+    const popupProject = document.getElementById('popupProject');
+    const popupPriority = document.getElementById('popupPriority');
+    const popupDue = document.getElementById('popupDue');
+    const popupDetails = document.getElementById('popupDetails');
+
+    if (item.id === id) {
+      popupTitle.textContent = item.title;
+      popupProject.children[1].textContent = null;
+      popupPriority.children[1].textContent = item.priority;
+      popupDue.children[1].textContent = format(new Date(item.dueDate), 'MMMM do, yyyy');
+      popupDetails.children[1].textContent = item.detail;
+
+    }
   })
 }
 

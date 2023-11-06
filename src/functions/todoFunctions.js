@@ -39,9 +39,7 @@ const addToList = (model) => {
   const title = document.getElementById('title').value;
   const detail = document.getElementById('detail').value;
   const dueDate = document.getElementById('dueDate').value;
-  const priority = document
-    .querySelector('input[type=radio]:checked')
-    .labels[0].textContent;
+  const priority = document.querySelector('input[type=radio]:checked').value
 
   model.add(title, detail, dueDate, priority);
 }

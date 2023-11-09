@@ -2,12 +2,12 @@ const createList = () => {
   const list = { todos: [] }
 
   return {
-    add(title, detail, dueDate, priority) {
+    add(title, detail, due, priority) {
       list.todos.push({
         id: list.todos.length + 1,
         title,
         detail,
-        dueDate,
+        due,
         priority,
         isDone: false,
       });
@@ -19,12 +19,12 @@ const createList = () => {
     read() {
       return list.todos
     },
-    update(id, title, detail, dueDate, priority) {
+    update(id, title, detail, due, priority) {
       list.todos.find(item => {
         if (item.id === id) {
           item.title = title;
           item.detail = detail;
-          item.dueDate = dueDate;
+          item.due = due;
           item.priority = priority;
         }
       })
@@ -48,10 +48,10 @@ const createList = () => {
 const addToList = (model) => {
   const title = document.getElementById('title').value;
   const detail = document.getElementById('detail').value;
-  const dueDate = document.getElementById('dueDate').value;
+  const due = document.getElementById('dueDate').value;
   const priority = document.querySelector('input[type=radio]:checked').value
 
-  model.add(title, detail, dueDate, priority);
+  model.add(title, detail, due, priority);
 }
 
 const editList = (model) => {

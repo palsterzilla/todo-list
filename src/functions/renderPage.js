@@ -10,7 +10,7 @@ const renderList = () => {
   itemList.forEach(item => {
     const id = item.id;
     const title = item.title;
-    const dueDate = item.dueDate;
+    const due = item.due;
     const isDone = item.isDone;
 
     const li = document.createElement('li');
@@ -39,7 +39,7 @@ const renderList = () => {
     wrapper.append(detailDiv);
 
     const deadLine = document.createElement('div');
-    deadLine.textContent = format(new Date(dueDate), 'MMM do');
+    deadLine.textContent = format(new Date(due), 'MMM do');
     wrapper.append(deadLine);
   
     const editButton = document.createElement('button');
@@ -103,7 +103,7 @@ const renderModal = (e) => {
       popupTitle.textContent = item.title;
       popupProject.children[1].textContent = null;
       popupPriority.children[1].textContent = item.priority;
-      popupDue.children[1].textContent = format(new Date(item.dueDate), 'MMMM do, yyyy');
+      popupDue.children[1].textContent = format(new Date(item.due), 'MMMM do, yyyy');
       popupDetails.children[1].textContent = item.detail;
 
     }
@@ -136,7 +136,7 @@ const renderEditModal = (e) => {
       editDetail.value = item.detail;
 
       const editDue = document.getElementById('editDue');
-      editDue.value = item.dueDate;
+      editDue.value = item.due;
 
       const priorityNode = document.querySelectorAll('input[name="edit_priority"]');
       const priorityArr = Array.from(priorityNode);

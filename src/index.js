@@ -1,5 +1,5 @@
 import { addToList, editList, myList } from "./functions/todoFunctions.js";
-import { renderList, renderItem, toggleModal, toggleEditModal } from "./functions/renderPage.js";
+import { renderList, renderItem, toggleDetailsModal, toggleEditModal } from "./functions/renderPage.js";
 import './styles/modal.css';
 
 const showDialogBtn = document.getElementById('showDialog');
@@ -38,7 +38,7 @@ dynamicLists.addEventListener('click', (e) => {
 
 detailsModal.addEventListener('click', (e) => {
   if (e.target.id === 'closeDetails' || e.target.id === 'overlay') {
-    toggleModal();
+    toggleDetailsModal();
   }
 })
 

@@ -1,6 +1,45 @@
 import { myList } from "./todoFunctions";
 import { format } from "date-fns";
 
+const renderItem = (e) => {
+  const element = e.target;
+  const id = +element.closest('li').getAttribute('data-id');
+  
+  if (element.hasAttribute('data-destroy')) {
+    myList.delete(id);
+    renderList();
+    
+  } else if (element.hasAttribute('data-toggle')) {
+    myList.toggle(id);
+    renderList();
+    
+  } else if (element.hasAttribute('data-details')) {
+    toggleDetailsModal();
+    renderDetailsModal(e);
+
+  } else if (element.hasAttribute('data-edit')) {
+    toggleEditModal();
+    renderEditModal(e);
+  
+  }
+}
+
+const toggleDetailsModal = () => {
+  const hiddensElm = document.querySelectorAll('[data-hidden]');
+
+  hiddensElm.forEach(elm => {
+    elm.classList.toggle('hidden');
+  })
+}
+
+const toggleEditModal = () => {
+  const hiddensElm = document.querySelectorAll('[data-editModal]');
+  
+  hiddensElm.forEach(elm => {
+    elm.classList.toggle('hidden');
+  })
+}
+
 const renderList = () => {
   const itemList = myList.read();
   const ul = document.getElementById('todoList');
@@ -56,37 +95,6 @@ const renderList = () => {
   })
 }
 
-const renderItem = (e) => {
-  const element = e.target;
-  const id = +element.closest('li').getAttribute('data-id');
-  
-  if (element.hasAttribute('data-destroy')) {
-    myList.delete(id);
-    renderList();
-    
-  } else if (element.hasAttribute('data-toggle')) {
-    myList.toggle(id);
-    renderList();
-    
-  } else if (element.hasAttribute('data-details')) {
-    toggleModal();
-    renderDetailsModal(e);
-
-  } else if (element.hasAttribute('data-edit')) {
-    toggleEditModal();
-    renderEditModal(e);
-  
-  }
-}
-
-const toggleModal = () => {
-  const hiddensElm = document.querySelectorAll('[data-hidden]');
-
-  hiddensElm.forEach(elm => {
-    elm.classList.toggle('hidden');
-  })
-}
-
 const renderDetailsModal = (e) => {
   const element = e.target;
   const id = +element.closest('li').getAttribute('data-id');
@@ -107,14 +115,6 @@ const renderDetailsModal = (e) => {
       detailsDetails.children[1].textContent = item.detail;
 
     }
-  })
-}
-
-const toggleEditModal = () => {
-  const hiddensElm = document.querySelectorAll('[data-editModal]');
-  
-  hiddensElm.forEach(elm => {
-    elm.classList.toggle('hidden');
   })
 }
 
@@ -148,4 +148,4 @@ const renderEditModal = (e) => {
   })
 }
 
-export { renderList, renderItem, toggleModal, toggleEditModal };
+export { renderList, renderItem, toggleDetailsModal, toggleEditModal };

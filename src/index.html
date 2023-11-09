@@ -8,7 +8,7 @@
 <body>
   <dialog id="addDialog">
     <div id="preventClose">
-      <form class="add-form" id="addForm">
+      <form id="addForm">
         <h2>Create new task</h2>
         <input id="addTitle" type="text" placeholder="Title: Be happy" max="50" required>
         <input id="addDetail" type="text" placeholder="Details: personal, home" max="50" required>
@@ -29,40 +29,40 @@
     </div>
   </dialog>
 
-  <button type="button" class="show-dialog" id="showDialog">+</button>
+  <button type="button" id="showDialog">+</button>
   <div id="app">
-    <section class="main">
-      <ul class="todo-list" id="todoList"></ul>
+    <section>
+      <ul id="todoList"></ul>
     </section>
   </div>
 
-  <div class="modal-wrapper" id="modalWrapper">
-    <section class="modal hidden" data-hidden>
-      <button class="btn-close" id="closeModal">⨉</button>
-      <div class="content">
-        <div class="popup-title" id="popupTitle"></div>
-        <div class="popup-project" id="popupProject">
+  <div id="modalWrapper">
+    <section class="hidden" data-hidden>
+      <button id="closeModal">⨉</button>
+      <div>
+        <div id="popupTitle"></div>
+        <div id="popupProject">
           <span>Project:</span>
           <span></span>
         </div>
-        <div class="popup-priority" id="popupPriority">
+        <div id="popupPriority">
           <span>Priority:</span>
           <span></span>
         </div>
-        <div class="popup-due" id="popupDue">
+        <div id="popupDue">
           <span>Due Date:</span>
           <span></span>
         </div>
-        <div class="popup-details" id="popupDetails">
+        <div id="popupDetails">
           <span>Details:</span>
           <span></span>
         </div>
     </section>
-    <div class="overlay hidden" id="overlay" data-hidden></div>
+    <!-- <div class="overlay hidden" id="overlay" data-hidden></div> -->
   </div>
   
-  <div class="edit-modal hidden" id="editModal" data-editModal>
-    <form action="" class="edit-form" id="editForm">
+  <div class="hidden" id="editModal" data-editModal>
+    <form action="" id="editForm">
       <input type="hidden" id="editId" name="edit_Id">
       <input type="text" id="editTitle" required>
       <input type="text" id="editDetail" required>
@@ -70,8 +70,8 @@
       <label for="editDue">Due Date:</label>
       <input type="date" id="editDue" required>
       
-      <div class="edit-priority">
-        <div class="priority-title">Priority:</div>
+      <div>
+        <div>Priority:</div>
         <input id="editLow" type="radio" name="edit_priority" value="Low" required>
         <label for="editLow">LOW</label>
         <input id="editMedium" type="radio" name="edit_priority" value="Medium">

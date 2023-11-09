@@ -70,7 +70,7 @@ const renderItem = (e) => {
     
   } else if (element.hasAttribute('data-details')) {
     toggleModal();
-    renderModal(e);
+    renderDetailsModal(e);
 
   } else if (element.hasAttribute('data-edit')) {
     toggleEditModal();
@@ -87,24 +87,24 @@ const toggleModal = () => {
   })
 }
 
-const renderModal = (e) => {
+const renderDetailsModal = (e) => {
   const element = e.target;
   const id = +element.closest('li').getAttribute('data-id');
   const itemList = myList.read();
   
   itemList.filter(item => {
-    const popupTitle = document.getElementById('popupTitle');
-    const popupProject = document.getElementById('popupProject');
-    const popupPriority = document.getElementById('popupPriority');
-    const popupDue = document.getElementById('popupDue');
-    const popupDetails = document.getElementById('popupDetails');
+    const detailsTitle = document.getElementById('detailsTitle');
+    const detailsProject = document.getElementById('detailsProject');
+    const detailsPriority = document.getElementById('detailsPriority');
+    const detailsDue = document.getElementById('detailsDue');
+    const detailsDetails = document.getElementById('detailsDetails');
 
     if (item.id === id) {
-      popupTitle.textContent = item.title;
-      popupProject.children[1].textContent = null;
-      popupPriority.children[1].textContent = item.priority;
-      popupDue.children[1].textContent = format(new Date(item.due), 'MMMM do, yyyy');
-      popupDetails.children[1].textContent = item.detail;
+      detailsTitle.textContent = item.title;
+      detailsProject.children[1].textContent = null;
+      detailsPriority.children[1].textContent = item.priority;
+      detailsDue.children[1].textContent = format(new Date(item.due), 'MMMM do, yyyy');
+      detailsDetails.children[1].textContent = item.detail;
 
     }
   })

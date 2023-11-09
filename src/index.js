@@ -4,14 +4,14 @@ import './styles/modal.css';
 
 const showDialogBtn = document.getElementById('showDialog');
 const preventClose = document.getElementById("preventClose");
-const dialog = document.getElementById('addDialog');
+const addTaskDialog = document.getElementById('addDialog');
 const addForm = document.getElementById('addForm');
 const editForm = document.getElementById('editForm');
 const list = document.getElementById('todoList');
 const modalWrapper = document.getElementById('modalWrapper');
 
 showDialogBtn.addEventListener('click', () => {
-  dialog.showModal();
+  addTaskDialog.showModal();
 });
 
 preventClose.addEventListener('click', (e) => {
@@ -19,9 +19,9 @@ preventClose.addEventListener('click', (e) => {
 });
 
 ['click', 'close'].forEach(evt =>
-  dialog.addEventListener(evt, () => {
+  addTaskDialog.addEventListener(evt, () => {
     addForm.reset();
-    dialog.close();
+    addTaskDialog.close();
   })
 );
 
@@ -29,7 +29,7 @@ addForm.addEventListener('submit', (e) => {
   e.preventDefault();
   addToList(myList);
   renderList();
-  dialog.close();
+  addTaskDialog.close();
 });
 
 list.addEventListener('click', (e) => {

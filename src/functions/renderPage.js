@@ -70,11 +70,11 @@ const renderList = () => {
     ul.append(li);
   
     const wrapper = document.createElement('div');
-    wrapper.classList.add('view');
+    // wrapper.classList.add('view');
     li.append(wrapper);
   
     const isDoneCheck = document.createElement('input');
-    isDoneCheck.classList.add('toggle');
+    // isDoneCheck.classList.add('toggle');
     isDoneCheck.setAttribute('type', 'checkbox');
     isDoneCheck.setAttribute('data-toggle', '');
     isDoneCheck.checked = isDone;
@@ -94,13 +94,13 @@ const renderList = () => {
     wrapper.append(deadLine);
   
     const editButton = document.createElement('button');
-    editButton.classList.add('edit');
+    // editButton.classList.add('edit');
     editButton.setAttribute('data-edit', '');
     editButton.textContent = 'EDIT';
     wrapper.append(editButton);
 
     const deleteButton = document.createElement('button');
-    deleteButton.classList.add('destroy');
+    // deleteButton.classList.add('destroy');
     deleteButton.setAttribute('data-destroy', '');
     deleteButton.textContent = 'DELETE';
     wrapper.append(deleteButton);

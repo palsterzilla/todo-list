@@ -37,12 +37,12 @@ const toggleModal = (e) => {
         addModal.classList.toggle('hidden');
   } 
   
-  else if ( element.id === 'showDetails' ||
+  else if ( element.hasAttribute('data-details') ||
             element.id === 'closeDetails') {
               detailsModal.classList.toggle('hidden');
   } 
 
-  else if ( element.id === 'showEdit' ||
+  else if ( element.hasAttribute('data-edit') ||
             element.id === 'closeEdit' ||
             element.id === 'editForm') {
               editModal.classList.toggle('hidden');
@@ -86,7 +86,6 @@ const renderList = () => {
     const detailDiv = document.createElement('div');
     detailDiv.textContent = 'DETAILS';
     detailDiv.setAttribute('data-details', '');
-    detailDiv.setAttribute('id', 'showDetails');
     wrapper.append(detailDiv);
 
     const deadLine = document.createElement('div');
@@ -96,7 +95,6 @@ const renderList = () => {
     const editButton = document.createElement('button');
     editButton.classList.add('edit');
     editButton.setAttribute('data-edit', '');
-    editButton.setAttribute('id', 'showEdit');
     editButton.textContent = 'EDIT';
     wrapper.append(editButton);
 

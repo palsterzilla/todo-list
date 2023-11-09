@@ -19,6 +19,16 @@ const createList = () => {
     read() {
       return list.todos
     },
+    update(id, title, detail, dueDate, priority) {
+      list.todos.find(item => {
+        if (item.id === id) {
+          item.title = title;
+          item.detail = detail;
+          item.dueDate = dueDate;
+          item.priority = priority;
+        }
+      })
+    },
     delete(id) {
       list.todos = list.todos.filter(item => item.id !== id);
       for (let i = 0, id = 1; i < list.todos.length; i++, id++) {
@@ -44,6 +54,16 @@ const addToList = (model) => {
   model.add(title, detail, dueDate, priority);
 }
 
+const editList = (model) => {
+  const editId = +document.getElementById('editId').value;
+  const editTitle = document.getElementById('editTitle').value;
+  const editDetail = document.getElementById('editDetail').value;
+  const editDue = document.getElementById('editDue').value;
+  const editPriority = document.querySelector('input[name="edit_priority"]:checked').value;
+
+  model.update(editId, editTitle, editDetail, editDue, editPriority);
+}
+
 const myList = createList();
 
-export { createList, addToList, myList }
+export { createList, addToList, myList, editList }

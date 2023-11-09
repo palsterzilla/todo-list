@@ -60,5 +60,28 @@
     </section>
     <div class="overlay hidden" id="overlay" data-hidden></div>
   </div>
+  
+  <div class="edit-modal hidden" id="editModal" data-editModal>
+    <form action="" class="edit-form" id="editForm">
+      <input type="hidden" id="editId" name="edit_Id">
+      <input type="text" id="editTitle" required>
+      <input type="text" id="editDetail" required>
+      
+      <label for="editDue">Due Date:</label>
+      <input type="date" id="editDue" required>
+      
+      <div class="edit-priority">
+        <div class="priority-title">Priority:</div>
+        <input id="editLow" type="radio" name="edit_priority" value="Low" required>
+        <label for="editLow">LOW</label>
+        <input id="editMedium" type="radio" name="edit_priority" value="Medium">
+        <label for="editMedium">MEDIUM</label>
+        <input id="editHigh" type="radio" name="edit_priority" value="High">
+        <label for="editHigh">HIGH</label>
+      </div>
+      <button type="submit" id="editSubmit">CONFIRM</button>
+    </form>
+    <!-- <div class="overlay hidden" data-editModal></div> -->
+  </div>
 </body>
 </html>

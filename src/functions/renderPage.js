@@ -71,7 +71,12 @@ const renderItem = (e) => {
   } else if (element.hasAttribute('data-details')) {
     toggleModal();
     renderModal(e);
-  } 
+
+  } else if (element.hasAttribute('data-edit')) {
+    toggleEditModal();
+    renderEditModal(e);
+  
+  }
 }
 
 const toggleModal = () => {
@@ -105,4 +110,42 @@ const renderModal = (e) => {
   })
 }
 
-export { renderList, renderItem, toggleModal };
+const toggleEditModal = () => {
+  const hiddensElm = document.querySelectorAll('[data-editModal]');
+  
+  hiddensElm.forEach(elm => {
+    elm.classList.toggle('hidden');
+  })
+}
+
+const renderEditModal = (e) => {
+  const element = e.target;
+  const id = +element.closest('li').getAttribute('data-id');
+  const listItems = myList.read();
+  
+  listItems.filter(item => {
+    if (item.id === id) {
+
+      const editId = document.getElementById('editId');
+      editId.value = id;
+
+      const editTitle = document.getElementById('editTitle');
+      editTitle.value = item.title;
+
+      const editDetail = document.getElementById('editDetail');
+      editDetail.value = item.detail;
+
+      const editDue = document.getElementById('editDue');
+      editDue.value = item.dueDate;
+
+      const priorityNode = document.querySelectorAll('input[name="edit_priority"]');
+      const priorityArr = Array.from(priorityNode);
+      priorityArr.find(elm => {
+        if (elm.value === item.priority)
+          elm.checked = true;
+      })
+    }
+  })
+}
+
+export { renderList, renderItem, toggleModal, toggleEditModal };

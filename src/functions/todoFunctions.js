@@ -4,7 +4,7 @@ const createList = () => {
   return {
     add(title, detail, due, priority) {
       list.todos.push({
-        id: list.todos.length + 1,
+        id: (list.todos.length + 1).toString(),
         title,
         detail,
         due,
@@ -55,7 +55,7 @@ const addToList = (model) => {
 }
 
 const editList = (model) => {
-  const editId = +document.getElementById('editId').value;
+  const editId = document.getElementById('editId').value;
   const editTitle = document.getElementById('editTitle').value;
   const editDetail = document.getElementById('editDetail').value;
   const editDue = document.getElementById('editDue').value;

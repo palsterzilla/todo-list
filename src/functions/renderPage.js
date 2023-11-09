@@ -5,7 +5,7 @@ const ITEMS_LIST = myList.read();
 
 const renderItem = (e) => {
   const element = e.target;
-  const id = +element.closest('li').getAttribute('data-id');
+  const id = element.closest('li').getAttribute('data-id');
   
   if (element.hasAttribute('data-destroy')) {
     myList.delete(id);
@@ -109,7 +109,7 @@ const renderList = () => {
 
 const renderDetailsModal = (e) => {
   const element = e.target;
-  const id = +element.closest('li').getAttribute('data-id');
+  const id = element.closest('li').getAttribute('data-id');
   
   ITEMS_LIST.filter(item => {
     const detailsTitle = document.getElementById('detailsTitle');
@@ -131,7 +131,7 @@ const renderDetailsModal = (e) => {
 
 const renderEditModal = (e) => {
   const element = e.target;
-  const id = +element.closest('li').getAttribute('data-id');
+  const id = element.closest('li').getAttribute('data-id');
   
   ITEMS_LIST.filter(item => {
     if (item.id === id) {

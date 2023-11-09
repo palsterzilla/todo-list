@@ -6,8 +6,9 @@ const showDialogBtn = document.getElementById('showDialog');
 const addForm = document.getElementById('addForm');
 const editForm = document.getElementById('editForm');
 const dynamicLists = document.getElementById('todoList');
-const closeDetailsBtn = document.getElementById('closeDetails');
 const closeAddBtn = document.getElementById('closeAdd');
+const closeDetailsBtn = document.getElementById('closeDetails');
+const closeEditBtn = document.getElementById('closeEdit');
 
 showDialogBtn.addEventListener('click', () => {
   toggleAddModal();
@@ -25,12 +26,16 @@ dynamicLists.addEventListener('click', (e) => {
   renderItem(e);
 })
 
+closeAddBtn.addEventListener('click', () => {
+  toggleAddModal();
+})
+
 closeDetailsBtn.addEventListener('click', () => {
   toggleDetailsModal();
 })
 
-closeAddBtn.addEventListener('click', () => {
-  toggleAddModal();
+closeEditBtn.addEventListener('click', () => {
+  toggleEditModal();
 })
 
 editForm.addEventListener('submit', (e) => {

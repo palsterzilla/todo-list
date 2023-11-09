@@ -5,7 +5,7 @@ import './styles/modal.css';
 const showDialogBtn = document.getElementById('showDialog');
 const preventClose = document.getElementById("preventClose");
 const dialog = document.getElementById('addDialog');
-const form = document.getElementById('taskForm');
+const addForm = document.getElementById('addForm');
 const editForm = document.getElementById('editForm');
 const list = document.getElementById('todoList');
 const modalWrapper = document.getElementById('modalWrapper');
@@ -20,12 +20,12 @@ preventClose.addEventListener('click', (e) => {
 
 ['click', 'close'].forEach(evt =>
   dialog.addEventListener(evt, () => {
-    form.reset();
+    addForm.reset();
     dialog.close();
   })
 );
 
-form.addEventListener('submit', (e) => {
+addForm.addEventListener('submit', (e) => {
   e.preventDefault();
   addToList(myList);
   renderList();

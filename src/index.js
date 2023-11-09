@@ -7,7 +7,7 @@ const preventClose = document.getElementById("preventClose");
 const addTaskDialog = document.getElementById('addDialog');
 const addForm = document.getElementById('addForm');
 const editForm = document.getElementById('editForm');
-const list = document.getElementById('todoList');
+const dynamicLists = document.getElementById('todoList');
 const modalWrapper = document.getElementById('modalWrapper');
 
 showDialogBtn.addEventListener('click', () => {
@@ -32,7 +32,7 @@ addForm.addEventListener('submit', (e) => {
   addTaskDialog.close();
 });
 
-list.addEventListener('click', (e) => {
+dynamicLists.addEventListener('click', (e) => {
   renderItem(e);
 })
 

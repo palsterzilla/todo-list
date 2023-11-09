@@ -14,38 +14,44 @@ const renderItem = (e) => {
     renderList();
     
   } else if (element.hasAttribute('data-details')) {
-    toggleDetailsModal();
+    toggleModal(e);
     renderDetailsModal(e);
 
   } else if (element.hasAttribute('data-edit')) {
-    toggleEditModal();
+    toggleModal(e);
     renderEditModal(e);
   
   }
 }
 
-const toggleAddModal = () => {
-  const hiddensElm = document.querySelectorAll('#addModal, #overlay');
+const toggleModal = (e) => {
+  const hiddenOverlay = document.getElementById('overlay');
+  const addModal = document.getElementById('addModal');
+  const detailsModal = document.getElementById('detailsModal');
+  const editModal = document.getElementById('editModal');
+  const element = e.target;
 
-  hiddensElm.forEach(elm => {
-    elm.classList.toggle('hidden');
-  })
-}
-
-const toggleDetailsModal = () => {
-  const hiddensElm = document.querySelectorAll('[data-detailsModal],[data-overlay]');
-
-  hiddensElm.forEach(elm => {
-    elm.classList.toggle('hidden');
-  })
-}
-
-const toggleEditModal = () => {
-  const hiddensElm = document.querySelectorAll('[data-editModal],[data-overlay]');
+  if (element.id === 'showAdd' ||
+      element.id === 'closeAdd' ||
+      element.id === 'addForm') {
+        addModal.classList.toggle('hidden');
+        console.log('add')
+  } 
   
-  hiddensElm.forEach(elm => {
-    elm.classList.toggle('hidden');
-  })
+  else if ( element.id === 'showDetails' ||
+            element.id === 'closeDetails') {
+              detailsModal.classList.toggle('hidden');
+              console.log('details')
+  } 
+
+  else if ( element.id === 'showEdit' ||
+            element.id === 'closeEdit' ||
+            element.id === 'editForm') {
+              editModal.classList.toggle('hidden');
+              console.log('edit')
+  }
+
+  hiddenOverlay.classList.toggle('hidden');
 }
 
 const renderList = () => {
@@ -83,6 +89,7 @@ const renderList = () => {
     const detailDiv = document.createElement('div');
     detailDiv.textContent = 'DETAILS';
     detailDiv.setAttribute('data-details', '');
+    detailDiv.setAttribute('id', 'showDetails');
     wrapper.append(detailDiv);
 
     const deadLine = document.createElement('div');
@@ -92,6 +99,7 @@ const renderList = () => {
     const editButton = document.createElement('button');
     editButton.classList.add('edit');
     editButton.setAttribute('data-edit', '');
+    editButton.setAttribute('id', 'showEdit');
     editButton.textContent = 'EDIT';
     wrapper.append(editButton);
 
@@ -156,4 +164,4 @@ const renderEditModal = (e) => {
   })
 }
 
-export { renderList, renderItem, toggleAddModal, toggleDetailsModal, toggleEditModal };
+export { renderList, renderItem, toggleModal };

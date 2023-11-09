@@ -1,15 +1,15 @@
 import { addToList, editList, myList } from "./functions/todoFunctions.js";
-import { renderList, renderItem, toggleAddModal, toggleDetailsModal, toggleEditModal } from "./functions/renderPage.js";
+import { renderList, renderItem, toggleModal } from "./functions/renderPage.js";
 import './styles/modal.css';
 
-const showDialogBtn = document.getElementById('showDialog');
+const showDialogBtn = document.getElementById('showAdd');
 const addForm = document.getElementById('addForm');
 const editForm = document.getElementById('editForm');
 const dynamicLists = document.getElementById('todoList');
 const closeButtons = document.querySelectorAll('#closeAdd, #closeDetails, #closeEdit');
 
-showDialogBtn.addEventListener('click', () => {
-  toggleAddModal();
+showDialogBtn.addEventListener('click', (e) => {
+  toggleModal(e);
 });
 
 addForm.addEventListener('submit', (e) => {
@@ -17,7 +17,7 @@ addForm.addEventListener('submit', (e) => {
   addToList(myList);
   addForm.reset();
   renderList();
-  toggleAddModal();
+  toggleModal(e);
 });
 
 dynamicLists.addEventListener('click', (e) => {
@@ -26,18 +26,7 @@ dynamicLists.addEventListener('click', (e) => {
 
 closeButtons.forEach(button => {
   button.addEventListener('click', (e) => {
-    const elm = e.target;
-    
-    if (elm.id === 'closeAdd') {
-      toggleAddModal();
-
-    } else if (elm.id === 'closeDetails') {
-      toggleDetailsModal();
-
-    } else if (elm.id === 'closeEdit') {
-      toggleEditModal();
-
-    }
+    toggleModal(e);
   })
 })
 
@@ -46,5 +35,5 @@ editForm.addEventListener('submit', (e) => {
   editList(myList);
   editForm.reset();
   renderList();
-  toggleEditModal();
+  toggleModal(e);
 })

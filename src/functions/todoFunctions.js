@@ -46,12 +46,12 @@ const createList = () => {
 }
 
 const addToList = (model) => {
-  const title = document.getElementById('title').value;
-  const detail = document.getElementById('detail').value;
-  const due = document.getElementById('dueDate').value;
-  const priority = document.querySelector('input[type=radio]:checked').value
+  const addTitle = document.getElementById('addTitle').value;
+  const addDetail = document.getElementById('addDetail').value;
+  const addDue = document.getElementById('addDue').value;
+  const addPriority = document.querySelector('input[name="add_priority"]:checked').value
 
-  model.add(title, detail, due, priority);
+  model.add(addTitle, addDetail, addDue, addPriority);
 }
 
 const editList = (model) => {

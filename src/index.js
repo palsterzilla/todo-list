@@ -1,35 +1,24 @@
 import { addToList, editList, myList } from "./functions/todoFunctions.js";
-import { renderList, renderItem, toggleDetailsModal, toggleEditModal } from "./functions/renderPage.js";
+import { renderList, renderItem, toggleAddModal, toggleDetailsModal, toggleEditModal } from "./functions/renderPage.js";
 import './styles/modal.css';
 
 const showDialogBtn = document.getElementById('showDialog');
-const preventClose = document.getElementById("preventClose");
-const addTaskDialog = document.getElementById('addDialog');
 const addForm = document.getElementById('addForm');
 const editForm = document.getElementById('editForm');
 const dynamicLists = document.getElementById('todoList');
 const closeDetailsBtn = document.getElementById('closeDetails');
+const closeAddBtn = document.getElementById('closeAdd');
 
 showDialogBtn.addEventListener('click', () => {
-  addTaskDialog.showModal();
+  toggleAddModal();
 });
-
-preventClose.addEventListener('click', (e) => {
-  e.stopPropagation();
-});
-
-['click', 'close'].forEach(evt =>
-  addTaskDialog.addEventListener(evt, () => {
-    addForm.reset();
-    addTaskDialog.close();
-  })
-);
 
 addForm.addEventListener('submit', (e) => {
   e.preventDefault();
   addToList(myList);
+  addForm.reset();
   renderList();
-  addTaskDialog.close();
+  toggleAddModal();
 });
 
 dynamicLists.addEventListener('click', (e) => {
@@ -38,6 +27,10 @@ dynamicLists.addEventListener('click', (e) => {
 
 closeDetailsBtn.addEventListener('click', () => {
   toggleDetailsModal();
+})
+
+closeAddBtn.addEventListener('click', () => {
+  toggleAddModal();
 })
 
 editForm.addEventListener('submit', (e) => {

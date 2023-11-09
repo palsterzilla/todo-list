@@ -24,6 +24,14 @@ const renderItem = (e) => {
   }
 }
 
+const toggleAddModal = () => {
+  const hiddensElm = document.querySelectorAll('#addModal, #overlay');
+
+  hiddensElm.forEach(elm => {
+    elm.classList.toggle('hidden');
+  })
+}
+
 const toggleDetailsModal = () => {
   const hiddensElm = document.querySelectorAll('[data-detailsModal],[data-overlay]');
 
@@ -148,4 +156,4 @@ const renderEditModal = (e) => {
   })
 }
 
-export { renderList, renderItem, toggleDetailsModal, toggleEditModal };
+export { renderList, renderItem, toggleAddModal, toggleDetailsModal, toggleEditModal };

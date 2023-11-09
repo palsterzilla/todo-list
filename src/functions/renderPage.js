@@ -1,6 +1,8 @@
 import { myList } from "./todoFunctions";
 import { format } from "date-fns";
 
+const ITEMS_LIST = myList.read();
+
 const renderItem = (e) => {
   const element = e.target;
   const id = +element.closest('li').getAttribute('data-id');
@@ -52,12 +54,11 @@ const toggleModal = (e) => {
 }
 
 const renderList = () => {
-  const itemList = myList.read();
   const ul = document.getElementById('todoList');
 
   ul.innerHTML = '';
 
-  itemList.forEach(item => {
+  ITEMS_LIST.forEach(item => {
     const id = item.id;
     const title = item.title;
     const due = item.due;
@@ -109,9 +110,8 @@ const renderList = () => {
 const renderDetailsModal = (e) => {
   const element = e.target;
   const id = +element.closest('li').getAttribute('data-id');
-  const itemList = myList.read();
   
-  itemList.filter(item => {
+  ITEMS_LIST.filter(item => {
     const detailsTitle = document.getElementById('detailsTitle');
     const detailsProject = document.getElementById('detailsProject');
     const detailsPriority = document.getElementById('detailsPriority');
@@ -132,9 +132,8 @@ const renderDetailsModal = (e) => {
 const renderEditModal = (e) => {
   const element = e.target;
   const id = +element.closest('li').getAttribute('data-id');
-  const listItems = myList.read();
   
-  listItems.filter(item => {
+  ITEMS_LIST.filter(item => {
     if (item.id === id) {
 
       const editId = document.getElementById('editId');

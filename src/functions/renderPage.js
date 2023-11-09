@@ -25,7 +25,7 @@ const renderItem = (e) => {
 }
 
 const toggleDetailsModal = () => {
-  const hiddensElm = document.querySelectorAll('[data-hidden]');
+  const hiddensElm = document.querySelectorAll('[data-detailsModal],[data-overlay]');
 
   hiddensElm.forEach(elm => {
     elm.classList.toggle('hidden');
@@ -33,7 +33,7 @@ const toggleDetailsModal = () => {
 }
 
 const toggleEditModal = () => {
-  const hiddensElm = document.querySelectorAll('[data-editModal]');
+  const hiddensElm = document.querySelectorAll('[data-editModal],[data-overlay]');
   
   hiddensElm.forEach(elm => {
     elm.classList.toggle('hidden');

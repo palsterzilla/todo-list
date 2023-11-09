@@ -8,7 +8,7 @@ const addTaskDialog = document.getElementById('addDialog');
 const addForm = document.getElementById('addForm');
 const editForm = document.getElementById('editForm');
 const dynamicLists = document.getElementById('todoList');
-const detailsModal = document.getElementById('detailsModal');
+const closeDetailsBtn = document.getElementById('closeDetails');
 
 showDialogBtn.addEventListener('click', () => {
   addTaskDialog.showModal();
@@ -36,10 +36,8 @@ dynamicLists.addEventListener('click', (e) => {
   renderItem(e);
 })
 
-detailsModal.addEventListener('click', (e) => {
-  if (e.target.id === 'closeDetails' || e.target.id === 'overlay') {
-    toggleDetailsModal();
-  }
+closeDetailsBtn.addEventListener('click', () => {
+  toggleDetailsModal();
 })
 
 editForm.addEventListener('submit', (e) => {

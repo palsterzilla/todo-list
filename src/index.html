@@ -36,8 +36,8 @@
     </section>
   </div>
 
-  <div id="detailsModal">
-    <section class="hidden" data-hidden>
+  <div class="modal hidden" id="detailsModal" data-detailsModal>
+    <section>
       <button id="closeDetails">⨉</button>
       <div>
         <div id="detailsTitle"></div>
@@ -58,10 +58,9 @@
           <span></span>
         </div>
     </section>
-    <!-- <div class="overlay hidden" id="overlay" data-hidden></div> -->
   </div>
   
-  <div class="hidden" id="editModal" data-editModal>
+  <div class="modal hidden" id="editModal" data-editModal>
     <form action="" id="editForm">
       <input type="hidden" id="editId" name="edit_Id">
       <input type="text" id="editTitle" required>
@@ -81,7 +80,7 @@
       </div>
       <button type="submit" id="editSubmit">CONFIRM</button>
     </form>
-    <!-- <div class="overlay hidden" data-editModal></div> -->
   </div>
+  <div class="overlay hidden" data-overlay></div>
 </body>
 </html>

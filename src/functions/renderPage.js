@@ -35,20 +35,17 @@ const toggleModal = (e) => {
       element.id === 'closeAdd' ||
       element.id === 'addForm') {
         addModal.classList.toggle('hidden');
-        console.log('add')
   } 
   
   else if ( element.id === 'showDetails' ||
             element.id === 'closeDetails') {
               detailsModal.classList.toggle('hidden');
-              console.log('details')
   } 
 
   else if ( element.id === 'showEdit' ||
             element.id === 'closeEdit' ||
             element.id === 'editForm') {
               editModal.classList.toggle('hidden');
-              console.log('edit')
   }
 
   hiddenOverlay.classList.toggle('hidden');

@@ -39,7 +39,26 @@ const renderContent = (e) => {
     toggleActivePage(e);
     renderList();
 
+  } else if (element.id === 'showAddProject') {
+    toggleAddProject();
+
+  } else if (element.id === 'submitProject') {
+    // do something
+    // do something
+    toggleAddProject();
+
+  } else if (element.id === 'closeProject') {
+    toggleAddProject();
+
   }
+}
+
+const toggleAddProject = () => {
+  const showProjectBtn = document.getElementById('showAddProject');
+  const addProject = document.getElementById('addProject');
+
+  addProject.classList.toggle('hidden')
+  showProjectBtn.classList.toggle('hidden');
 }
 
 const toggleActivePage = (e) => {

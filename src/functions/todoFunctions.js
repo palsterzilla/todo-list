@@ -1,7 +1,9 @@
-import { format } from "date-fns";
+import { format, add } from "date-fns";
 
 const createList = () => {
   const list = { todos: [] }
+  const TODAY = format(new Date(), 'yyyy-MM-dd');
+  const WEEK = format(add(new Date(), {days: 6}), 'yyyy-MM-dd');
 
   return {
     add(title, detail, due, priority) {
@@ -55,9 +57,15 @@ const createList = () => {
     },
     readToday() {
       return list.todos.filter(item => {
-        return item.due === format(new Date(), 'yyyy-MM-dd')
+        return item.due === TODAY
       })
-    }
+    },
+    readWeek() {
+      return list.todos.filter(item => {
+        return  item.due >= TODAY &&
+                item.due <= WEEK
+      })
+    },
   }
 }
 

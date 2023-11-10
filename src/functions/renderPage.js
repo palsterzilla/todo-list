@@ -4,7 +4,7 @@ import { format } from "date-fns";
 const renderItem = (e) => {
   const element = e.target;
   const id = element.closest('li').getAttribute('data-id');
-  
+
   if (element.hasAttribute('data-destroy')) {
     myList.delete(id);
     renderList();
@@ -37,6 +37,7 @@ const renderContent = (e) => {
 
   } else if (element.id === 'navWeek') {
     toggleActivePage(e);
+    renderList();
 
   }
 }
@@ -80,6 +81,7 @@ const renderList = () => {
   const activePage = document.querySelector('[class=active][data-activePage]');
   const defaultList = myList.read();
   const todayList = myList.readToday();
+  const weekList = myList.readWeek();
   let items;
   
   if (activePage.textContent === 'Home') {
@@ -87,6 +89,9 @@ const renderList = () => {
 
   } else if (activePage.textContent === 'Today') {
     items = todayList;
+
+  } else if (activePage.textContent === 'Week') {
+    items = weekList;
 
   }
 

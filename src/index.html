@@ -6,8 +6,23 @@
   <title>Todo List</title>
 </head>
 <body>
-  <button type="button" id="showAdd">+</button>
-  <div id="app">
+  <div class="header">
+    <h1>todos</h1>
+  </div>
+
+  <div class="sidebar">
+    <div class="default-projects-list">
+      <a href="#">Home</a>
+      <a href="#">Today</a>
+      <a href="#">Week</a>
+    </div>
+    <h1>Projects</h1>
+    <div class="projects-list"></div>
+    <button>+ Add Project</button>
+  </div>
+
+  <div class="content">
+    <button type="button" id="showAdd">+ Add Task</button>
     <section>
       <ul id="todoList"></ul>
     </section>

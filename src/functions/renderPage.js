@@ -40,11 +40,11 @@ const renderContent = (e) => {
     renderList();
 
   } else if (element.id === 'showAddProject') {
+    resetInput();
     toggleAddProject();
 
   } else if (element.id === 'submitProject') {
-    // do something
-    // do something
+    renderProject();
     toggleAddProject();
 
   } else if (element.id === 'closeProject') {
@@ -94,6 +94,21 @@ const toggleModal = (e) => {
   }
 
   hiddenOverlay.classList.toggle('hidden');
+}
+
+const resetInput = () => {
+  const projectTitle = document.getElementById('projectTitle');
+  projectTitle.value = '';
+}
+
+const renderProject = () => {
+  const projectsList = document.getElementById('projectsList');
+  const projectTitle = document.getElementById('projectTitle');
+
+  const project = document.createElement('a');
+  project.textContent = projectTitle.value;
+  project.setAttribute('data-activePage', '')
+  projectsList.append(project);
 }
 
 const renderList = () => {

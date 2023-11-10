@@ -28,12 +28,18 @@ const createList = () => {
           item.priority = priority;
         }
       })
+
+      // helper
+      console.table(list.todos)
     },
     delete(id) {
       list.todos = list.todos.filter(item => item.id !== id);
       for (let i = 0, id = 1; i < list.todos.length; i++, id++) {
-        list.todos[i].id = id;
+        list.todos[i].id = id.toString();
       }
+
+      // helper
+      console.table(list.todos)
     },
     toggle(id) {
       list.todos.find(item => {
@@ -41,6 +47,9 @@ const createList = () => {
           item.isDone = !item.isDone;
         }
       })
+
+      // helper
+      console.table(list.todos)
     }
   }
 }

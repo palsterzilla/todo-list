@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 const createList = () => {
   const list = { todos: [] }
 
@@ -50,6 +52,11 @@ const createList = () => {
 
       // helper
       console.table(list.todos)
+    },
+    readToday() {
+      return list.todos.filter(item => {
+        return item.due === format(new Date(), 'yyyy-MM-dd')
+      })
     }
   }
 }

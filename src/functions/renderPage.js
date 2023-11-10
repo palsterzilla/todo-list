@@ -29,9 +29,11 @@ const renderContent = (e) => {
 
   if (element.id === 'navHome') {
     toggleActivePage(e);
+    renderList();
 
   } else if (element.id === 'navToday') {
     toggleActivePage(e);
+    renderList();
 
   } else if (element.id === 'navWeek') {
     toggleActivePage(e);
@@ -75,12 +77,23 @@ const toggleModal = (e) => {
 }
 
 const renderList = () => {
-  const itemsList = myList.read()
-  const ul = document.getElementById('todoList');
+  const activePage = document.querySelector('[class=active][data-activePage]');
+  const defaultList = myList.read();
+  const todayList = myList.readToday();
+  let items;
+  
+  if (activePage.textContent === 'Home') {
+    items = defaultList;
 
+  } else if (activePage.textContent === 'Today') {
+    items = todayList;
+
+  }
+
+  const ul = document.getElementById('todoList');
   ul.innerHTML = '';
 
-  itemsList.forEach(item => {
+  items.forEach(item => {
     const id = item.id;
     const title = item.title;
     const due = item.due;

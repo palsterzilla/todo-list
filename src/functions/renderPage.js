@@ -28,14 +28,17 @@ const renderContent = (e) => {
   const element = e.target;
 
   if (element.id === 'navHome') {
+    toggleTaskBtn(e);
     toggleActivePage(e);
     renderList();
 
   } else if (element.id === 'navToday') {
+    toggleTaskBtn(e);
     toggleActivePage(e);
     renderList();
 
   } else if (element.id === 'navWeek') {
+    toggleTaskBtn(e);
     toggleActivePage(e);
     renderList();
 
@@ -50,7 +53,25 @@ const renderContent = (e) => {
   } else if (element.id === 'closeProject') {
     toggleAddProject();
 
+  } else if (element.hasAttribute('data-activePage')) {
+    toggleTaskBtn(e);
+    toggleActivePage(e);
+
   }
+}
+
+const toggleTaskBtn = (e) => {
+  const element = e.target;
+  const taskButton = document.getElementById('showAdd');
+
+  if (element.id === 'navToday' || element.id === 'navWeek') {
+    taskButton.classList.add('hidden')
+        
+  } else  {
+    taskButton.classList.remove('hidden')
+
+  }
+
 }
 
 const toggleAddProject = () => {

@@ -56,6 +56,7 @@ const renderContent = (e) => {
   } else if (element.hasAttribute('data-activePage')) {
     toggleTaskBtn(e);
     toggleActivePage(e);
+    renderList();
 
   }
 }
@@ -71,7 +72,6 @@ const toggleTaskBtn = (e) => {
     taskButton.classList.remove('hidden')
 
   }
-
 }
 
 const toggleAddProject = () => {
@@ -134,10 +134,13 @@ const renderProject = () => {
 
 const renderList = () => {
   const activePage = document.querySelector('[class=active][data-activePage]');
+  const project = activePage.textContent;
+  let items;
+
   const defaultList = myList.read();
   const todayList = myList.readToday();
   const weekList = myList.readWeek();
-  let items;
+  const projectsList = myList.readProject(project);
   
   if (activePage.textContent === 'Home') {
     items = defaultList;
@@ -147,6 +150,9 @@ const renderList = () => {
 
   } else if (activePage.textContent === 'Week') {
     items = weekList;
+
+  } else {
+    items = projectsList;
 
   }
 
@@ -216,7 +222,7 @@ const renderDetailsModal = (e) => {
 
     if (item.id === id) {
       detailsTitle.textContent = item.title;
-      detailsProject.children[1].textContent = null;
+      detailsProject.children[1].textContent = item.project;
       detailsPriority.children[1].textContent = item.priority;
       detailsDue.children[1].textContent = format(new Date(item.due), 'MMMM do, yyyy');
       detailsDetails.children[1].textContent = item.detail;

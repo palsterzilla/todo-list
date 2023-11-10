@@ -6,9 +6,10 @@ const createList = () => {
   const WEEK = format(add(new Date(), {days: 6}), 'yyyy-MM-dd');
 
   return {
-    add(title, detail, due, priority) {
+    add(project, title, detail, due, priority) {
       list.todos.push({
         id: (list.todos.length + 1).toString(),
+        project,
         title,
         detail,
         due,
@@ -66,16 +67,28 @@ const createList = () => {
                 item.due <= WEEK
       })
     },
+    readProject(project) {
+      return list.todos.filter(item => {
+        return item.project === project
+      })
+    }
   }
 }
 
 const addToList = (model) => {
-  const addTitle = document.getElementById('addTitle').value;
-  const addDetail = document.getElementById('addDetail').value;
-  const addDue = document.getElementById('addDue').value;
-  const addPriority = document.querySelector('input[name="add_priority"]:checked').value
+  const addProject = document.querySelector('.active');
+  const addTitle = document.getElementById('addTitle');
+  const addDetail = document.getElementById('addDetail');
+  const addDue = document.getElementById('addDue');
+  const addPriority = document.querySelector('input[name="add_priority"]:checked');
 
-  model.add(addTitle, addDetail, addDue, addPriority);
+  const project = addProject.textContent;
+  const title = addTitle.value;
+  const details = addDetail.value;
+  const due = addDue.value;
+  const priority = addPriority.value;
+
+  model.add(project, title, details, due, priority);
 }
 
 const editList = (model) => {

@@ -24,6 +24,29 @@ const renderItem = (e) => {
   }
 }
 
+const renderContent = (e) => {
+  const element = e.target;
+
+  if (element.id === 'navHome') {
+    toggleActivePage(e);
+
+  } else if (element.id === 'navToday') {
+    toggleActivePage(e);
+
+  } else if (element.id === 'navWeek') {
+    toggleActivePage(e);
+
+  }
+}
+
+const toggleActivePage = (e) => {
+  const element = e.target;
+  const activePage = document.querySelector('[class=active][data-activePage]');
+  
+  activePage.classList.toggle('active');
+  element.classList.toggle('active');
+}
+
 const toggleModal = (e) => {
   const hiddenOverlay = document.getElementById('overlay');
   const addModal = document.getElementById('addModal');
@@ -159,4 +182,4 @@ const renderEditModal = (e) => {
   })
 }
 
-export { renderList, renderItem, toggleModal };
+export { renderList, renderItem, renderContent, toggleModal };

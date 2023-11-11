@@ -37,8 +37,18 @@ const createList = () => {
       // helper
       console.table(list.todos)
     },
-    delete(id) {
-      list.todos = list.todos.filter(item => item.id !== id);
+    delete(criteria) {
+      list.todos = list.todos.filter(item => {
+        let pattern = /\d/i
+        if (pattern.test(criteria)) {
+          return item.id !== criteria
+          
+        } else {
+          return item.project !== criteria
+        
+        }
+      });
+
       for (let i = 0, id = 1; i < list.todos.length; i++, id++) {
         list.todos[i].id = id.toString();
       }

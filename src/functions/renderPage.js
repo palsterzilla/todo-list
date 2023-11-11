@@ -58,6 +58,14 @@ const renderContent = (e) => {
     toggleActivePage(e);
     renderList();
 
+  } else if (element.hasAttribute('data-deleteProject')) {
+    const project = element.previousElementSibling.getAttribute('data-project');
+
+    myList.delete(project);
+    toggleTaskBtn(e);
+    toggleActivePage(e);
+    element.closest('li').remove();
+    renderList();
   }
 }
 
@@ -85,9 +93,17 @@ const toggleAddProject = () => {
 const toggleActivePage = (e) => {
   const element = e.target;
   const activePage = document.querySelector('[class=active][data-activePage]');
+  const homePage = document.getElementById('navHome');
   
-  activePage.classList.toggle('active');
-  element.classList.toggle('active');
+  activePage.classList.remove('active');
+
+  if (activePage && element.hasAttribute('data-deleteProject')) {
+    homePage.classList.add('active');
+    
+  } else  {
+    element.classList.add('active');
+
+  } 
 }
 
 const toggleModal = (e) => {
@@ -137,6 +153,7 @@ const renderProject = () => {
 
   const button = document.createElement('button');
   button.textContent = 'X';
+  button.setAttribute('data-deleteProject', '')
   li.append(button);
 }
 

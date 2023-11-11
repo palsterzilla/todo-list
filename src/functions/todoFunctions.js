@@ -76,13 +76,13 @@ const createList = () => {
 }
 
 const addToList = (model) => {
-  const addProject = document.querySelector('.active');
+  const addProject = document.querySelector('[data-activePage].active');
   const addTitle = document.getElementById('addTitle');
   const addDetail = document.getElementById('addDetail');
   const addDue = document.getElementById('addDue');
   const addPriority = document.querySelector('input[name="add_priority"]:checked');
 
-  const project = addProject.textContent;
+  const project = addProject.getAttribute("data-project");
   const title = addTitle.value;
   const details = addDetail.value;
   const due = addDue.value;

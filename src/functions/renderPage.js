@@ -129,6 +129,7 @@ const renderProject = () => {
   const project = document.createElement('a');
   project.textContent = projectTitle.value;
   project.setAttribute('data-activePage', '')
+  project.setAttribute('data-project', projectTitle.value)
   projectsList.append(project);
 }
 

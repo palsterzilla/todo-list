@@ -142,7 +142,7 @@ const renderProject = () => {
 
 const renderList = () => {
   const activePage = document.querySelector('[class=active][data-activePage]');
-  const project = activePage.textContent;
+  const project = activePage.getAttribute("data-project");
   let items;
 
   const defaultList = myList.read();

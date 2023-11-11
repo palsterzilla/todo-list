@@ -75,30 +75,32 @@ const createList = () => {
   }
 }
 
-const addToList = (model) => {
+const addToList = () => {
   const addProject = document.querySelector('[data-activePage].active');
   const addTitle = document.getElementById('addTitle');
   const addDetail = document.getElementById('addDetail');
   const addDue = document.getElementById('addDue');
   const addPriority = document.querySelector('input[name="add_priority"]:checked');
 
-  const project = addProject.getAttribute("data-project");
-  const title = addTitle.value;
-  const details = addDetail.value;
-  const due = addDue.value;
-  const priority = addPriority.value;
-
-  model.add(project, title, details, due, priority);
+  myList.add( addProject.getAttribute("data-project"),
+              addTitle.value,
+              addDetail.value,
+              addDue.value,
+              addPriority.value)
 }
 
-const editList = (model) => {
-  const editId = document.getElementById('editId').value;
-  const editTitle = document.getElementById('editTitle').value;
-  const editDetail = document.getElementById('editDetail').value;
-  const editDue = document.getElementById('editDue').value;
-  const editPriority = document.querySelector('input[name="edit_priority"]:checked').value;
+const editList = () => {
+  const editId = document.getElementById('editId');
+  const editTitle = document.getElementById('editTitle');
+  const editDetail = document.getElementById('editDetail');
+  const editDue = document.getElementById('editDue');
+  const editPriority = document.querySelector('input[name="edit_priority"]:checked');
 
-  model.update(editId, editTitle, editDetail, editDue, editPriority);
+  myList.update(editId.value,
+                editTitle.value,
+                editDetail.value,
+                editDue.value,
+                editPriority.value)
 }
 
 const myList = createList();

@@ -1,4 +1,4 @@
-import { addToList, editList, myList } from "./functions/todoFunctions.js";
+import { addToList, editList } from "./functions/todoFunctions.js";
 import { renderList, renderItem, renderContent, toggleModal } from "./functions/renderPage.js";
 import './styles/modal.css';
 
@@ -15,7 +15,7 @@ showDialogBtn.addEventListener('click', (e) => {
 
 addForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  addToList(myList);
+  addToList()
   addForm.reset();
   renderList();
   toggleModal(e);
@@ -33,7 +33,7 @@ closeButtons.forEach(button => {
 
 editForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  editList(myList);
+  editList();
   editForm.reset();
   renderList();
   toggleModal(e);

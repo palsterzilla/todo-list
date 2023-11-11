@@ -126,11 +126,18 @@ const renderProject = () => {
   const projectsList = document.getElementById('projectsList');
   const projectTitle = document.getElementById('projectTitle');
 
-  const project = document.createElement('a');
-  project.textContent = projectTitle.value;
-  project.setAttribute('data-activePage', '')
-  project.setAttribute('data-project', projectTitle.value)
-  projectsList.append(project);
+  const li = document.createElement('li');
+  projectsList.append(li);
+  
+  const a = document.createElement('a');
+  a.textContent = projectTitle.value;
+  a.setAttribute('data-activePage', '');
+  a.setAttribute('data-project', projectTitle.value);
+  li.append(a);
+
+  const button = document.createElement('button');
+  button.textContent = 'X';
+  li.append(button);
 }
 
 const renderList = () => {

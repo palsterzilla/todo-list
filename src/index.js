@@ -1,5 +1,5 @@
 import { addToList, editList } from "./functions/todoFunctions.js";
-import { renderList, renderItem, renderContent, toggleModal } from "./functions/renderPage.js";
+import { renderProject, renderList, renderItem, renderContent, toggleModal } from "./functions/renderPage.js";
 import './styles/modal.css';
 
 const showDialogBtn = document.getElementById('showAdd');
@@ -45,4 +45,5 @@ sidebar.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderList();
+  renderProject();
 });

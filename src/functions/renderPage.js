@@ -47,6 +47,7 @@ const renderContent = (e) => {
     toggleAddProject();
 
   } else if (element.id === 'submitProject') {
+    saveProject();
     renderProject();
     toggleAddProject();
 
@@ -62,9 +63,10 @@ const renderContent = (e) => {
     const project = element.previousElementSibling.getAttribute('data-project');
 
     myList.delete(project);
+    deleteProject(project);
     toggleTaskBtn(e);
     toggleActivePage(e);
-    element.closest('li').remove();
+    renderProject();
     renderList();
   }
 }
@@ -138,23 +140,54 @@ const resetInput = () => {
   projectTitle.value = '';
 }
 
-const renderProject = () => {
-  const projectsList = document.getElementById('projectsList');
+const saveProject = () => {
+  let projects = [];
   const projectTitle = document.getElementById('projectTitle');
 
-  const li = document.createElement('li');
-  projectsList.append(li);
-  
-  const a = document.createElement('a');
-  a.textContent = projectTitle.value;
-  a.setAttribute('data-activePage', '');
-  a.setAttribute('data-project', projectTitle.value);
-  li.append(a);
+  projects = JSON.parse(localStorage.getItem("projects"));
+  projects.push(projectTitle.value);
+  localStorage.setItem("projects", JSON.stringify(projects));
+}
 
-  const button = document.createElement('button');
-  button.textContent = 'X';
-  button.setAttribute('data-deleteProject', '')
-  li.append(button);
+const deleteProject = (projectTitle) => {
+  let projects = [];
+
+  projects = JSON.parse(localStorage.getItem("projects"));
+  projects = projects.filter(item => {
+    return item !== projectTitle
+  });
+  localStorage.setItem("projects", JSON.stringify(projects));
+}
+
+const renderProject = () => {
+  let projects = ['happiness'];
+  
+  if (!localStorage.getItem("projects")) {
+    localStorage.setItem("projects", JSON.stringify(projects));
+    
+  } else {
+    projects = JSON.parse(localStorage.getItem("projects"));
+    
+  }
+
+  const projectsList = document.getElementById('projectsList');
+  projectsList.innerHTML = '';
+  
+  projects.forEach(item => {
+    const li = document.createElement('li');
+    projectsList.append(li);
+    
+    const a = document.createElement('a');
+    a.textContent = item;
+    a.setAttribute('data-activePage', '');
+    a.setAttribute('data-project', item);
+    li.append(a);
+  
+    const button = document.createElement('button');
+    button.textContent = 'X';
+    button.setAttribute('data-deleteProject', '');
+    li.append(button);
+  })
 }
 
 const renderList = () => {
@@ -286,4 +319,4 @@ const renderEditModal = (e) => {
   })
 }
 
-export { renderList, renderItem, renderContent, toggleModal };
+export { renderProject, renderList, renderItem, renderContent, toggleModal };

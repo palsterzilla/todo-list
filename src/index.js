@@ -42,3 +42,7 @@ editForm.addEventListener('submit', (e) => {
 sidebar.addEventListener('click', (e) => {
   renderContent(e);
 })
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderList();
+});

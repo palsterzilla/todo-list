@@ -2,6 +2,15 @@ import { format, add } from "date-fns";
 
 const createList = () => {
   const list = { todos: [] }
+
+  if (!localStorage.getItem("list")) {
+    localStorage.setItem("list", JSON.stringify(list))
+
+  } else {
+    list.todos = JSON.parse(localStorage.getItem("list")).todos;
+
+  }
+
   const TODAY = format(new Date(), 'yyyy-MM-dd');
   const WEEK = format(add(new Date(), {days: 6}), 'yyyy-MM-dd');
 
@@ -16,6 +25,7 @@ const createList = () => {
         priority,
         isDone: false,
       });
+      localStorage.setItem("list", JSON.stringify(list));
       
       // helper
       console.table(list.todos)
@@ -33,9 +43,11 @@ const createList = () => {
           item.priority = priority;
         }
       })
+      localStorage.setItem("list", JSON.stringify(list));
 
       // helper
       console.table(list.todos)
+
     },
     delete(criteria) {
       list.todos = list.todos.filter(item => {
@@ -52,9 +64,11 @@ const createList = () => {
       for (let i = 0, id = 1; i < list.todos.length; i++, id++) {
         list.todos[i].id = id.toString();
       }
+      localStorage.setItem("list", JSON.stringify(list));
 
       // helper
       console.table(list.todos)
+
     },
     toggle(id) {
       list.todos.find(item => {
@@ -62,9 +76,11 @@ const createList = () => {
           item.isDone = !item.isDone;
         }
       })
+      localStorage.setItem("list", JSON.stringify(list));
 
       // helper
       console.table(list.todos)
+      
     },
     readToday() {
       return list.todos.filter(item => {

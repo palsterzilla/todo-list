@@ -6,32 +6,42 @@
   <title>Todo List</title>
 </head>
 <body>
-  <div class="header">
-    <h1>todos</h1>
-  </div>
+   <div class="container">
+     <div class="dummy">dummy</div>
+     <div class="sidebar" id="sidebar">
+        <div class="top">
+          <ul class="default-projects-list">
+            <li><a id="navHome" href="#" data-activePage class="active" data-project="home">Home</a></li>
+            <li><a id="navToday" href="#"data-activePage>Today</a></li>
+            <li><a id="navWeek" href="#" data-activePage>Week</a></li>
+          </ul>
+        </div>
 
-  <div class="sidebar" id="sidebar">
-    <ul class="default-projects-list">
-      <li><a id="navHome" href="#" data-activePage class="active" data-project="home">Home</a></li>
-      <li><a id="navToday" href="#"data-activePage>Today</a></li>
-      <li><a id="navWeek" href="#" data-activePage>Week</a></li>
-    </ul>
-    <h1>Projects</h1>
-    <ul class="projects-list" id="projectsList"></ul>
-    <button id="showAddProject">+ Add Project</button>
-    <div class="hidden" id="addProject">
-      <input id="projectTitle" type="text">
-      <button id="submitProject">ADD</button>
-      <button id="closeProject">CLOSE</button>
-    </div>
-  </div>
+        <div class="bottom">
+          <h1>Projects</h1>
+          <ul class="projects-list" id="projectsList"></ul>
+          <button id="showAddProject">+ Add Project</button>
+          <div class="hidden" id="addProject">
+            <input id="projectTitle" type="text">
+            <button id="submitProject">ADD</button>
+            <button id="closeProject">CLOSE</button>
+          </div>
+        </div>
+     </div>
+   
+     <div class="content">
+      <div class="fixed">
+        <h1>Home</h1>
+        <button class="" type="button" id="showAdd">+ Add Task</button>
+      </div>
+       <div class="scrollable">
+         <section>
+           <ul id="todoList"></ul>
+         </section>
+       </div>
+     </div>
 
-  <div class="content">
-    <button type="button" id="showAdd">+ Add Task</button>
-    <section>
-      <ul id="todoList"></ul>
-    </section>
-  </div>
+   </div>
 
   <div class="modal hidden" id="addModal">
     <button id="closeAdd">⨉</button>

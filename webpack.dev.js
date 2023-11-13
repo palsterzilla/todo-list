@@ -4,6 +4,14 @@ const { merge } = require('webpack-merge');
 
 module.exports = merge(config, {
   mode: 'development',
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 5566,
+    liveReload: true,
+  },
   devtool: 'inline-source-map',
   output: {
     filename: 'main.js',
@@ -19,5 +27,5 @@ module.exports = merge(config, {
       },
     ],
   },
-  watch: true,
+  // watch: true,
 });

@@ -181,6 +181,7 @@ const renderProject = () => {
     a.textContent = item;
     a.setAttribute('data-activePage', '');
     a.setAttribute('data-project', item);
+    a.setAttribute('href', '#');
     li.append(a);
   
     const button = document.createElement('button');

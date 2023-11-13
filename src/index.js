@@ -1,5 +1,7 @@
 import { addToList, editList } from "./functions/todoFunctions.js";
 import { renderProject, renderList, renderItem, renderContent, toggleModal } from "./functions/renderPage.js";
+import 'normalize.css';
+import './styles/common.css';
 import './styles/modal.css';
 
 const showDialogBtn = document.getElementById('showAdd');

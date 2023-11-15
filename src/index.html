@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
+  <script src="https://kit.fontawesome.com/9dc98241b9.js" crossorigin="anonymous"></script>
 </head>
 <body>
    <div class="container">
@@ -60,9 +61,15 @@
      <div class="sidebar" id="sidebar">
         <div class="top">
           <ul class="default-projects-list">
-            <li><a id="navHome" href="#" data-activePage class="active" data-project="home">Home</a></li>
-            <li><a id="navToday" href="#"data-activePage>Today</a></li>
-            <li><a id="navWeek" href="#" data-activePage>Week</a></li>
+            <li><a id="navHome" href="#" data-activePage class="active home" data-project="home">
+              <i class="fas fa-inbox fa-fw fa-lg"></i> Home
+            </a></li>
+            <li><a class="today" id="navToday" href="#" data-activePage>
+              <i class="fas fa-calendar-day fa-fw fa-lg"></i> Today
+            </a></li>
+            <li><a class="week" id="navWeek" href="#" data-activePage>
+              <i class="fas fa-calendar-week fa-fw fa-lg"></i> Week
+            </a></li>
           </ul>
         </div>
 

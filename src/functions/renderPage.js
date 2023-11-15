@@ -94,7 +94,7 @@ const toggleAddProject = () => {
 
 const toggleActivePage = (e) => {
   const element = e.target;
-  const activePage = document.querySelector('[class=active][data-activePage]');
+  const activePage = document.querySelector('.active[data-activePage]');
   const homePage = document.getElementById('navHome');
   
   activePage.classList.remove('active');
@@ -192,7 +192,7 @@ const renderProject = () => {
 }
 
 const renderList = () => {
-  const activePage = document.querySelector('[class=active][data-activePage]');
+  const activePage = document.querySelector('.active[data-activePage]');
   const project = activePage.getAttribute("data-project");
   let items;
 

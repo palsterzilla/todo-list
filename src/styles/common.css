@@ -34,8 +34,8 @@ body {
 
 /* dummy sidebar*/
 .dummy {
-  /* TODO: radius only top left right */
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   background-color: rgb(243,246,254);
   width: 80px;
   display: flex;

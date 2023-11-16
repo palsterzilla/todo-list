@@ -48,8 +48,10 @@ const renderContent = (e) => {
 
   } else if (element.id === 'submitProject') {
     saveProject();
+    toggleActivePage(e);
     renderProject();
     toggleAddProject();
+    renderList();
 
   } else if (element.id === 'closeProject') {
     toggleAddProject();
@@ -101,12 +103,13 @@ const toggleActivePage = (e) => {
   
   activePage.classList.remove('active');
 
-  if (activePage && element.hasAttribute('data-deleteProject')) {
-    homePage.classList.add('active');
-    
-  } else  {
+  if (activePage && element.hasAttribute('data-deleteProject') ||
+      element.id === 'submitProject') {
+        homePage.classList.add('active');
+  } 
+  
+  else  {
     currPage.classList.add('active');
-
   } 
 }
 

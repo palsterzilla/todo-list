@@ -177,24 +177,28 @@ const renderProject = () => {
   
   projects.forEach(item => {
     const li = document.createElement('li');
-    li.setAttribute('data-activePage', '');
-    li.setAttribute('data-project', item);
-    li.setAttribute('href', '#');
-    li.textContent = item;
     projectsList.append(li);
 
-    const span = document.createElement('span');
-    span.setAttribute('class', 'fa-li');
-    li.append(span);
-
+    const anchor = document.createElement('a');
+    anchor.setAttribute('href', '#');
+    anchor.setAttribute('data-activePage', '');
+    anchor.setAttribute('data-project', item);
+    li.append(anchor);
+    
     const barsIcon = document.createElement('i');
     barsIcon.setAttribute('class', 'fas fa-bars fa-fw fa-lg');
-    span.append(barsIcon);
+    barsIcon.setAttribute('data-project', item);
+    anchor.append(barsIcon);
+    
+    const span = document.createElement('span');
+    span.setAttribute('data-project', item);
+    span.textContent = item;
+    anchor.append(span);
 
     const deleteIcon = document.createElement('i');
     deleteIcon.setAttribute('data-deleteProject', '');
-    deleteIcon.setAttribute('class', 'fas fa-rectangle-xmark fa-fw fa-lg');
-    li.append(deleteIcon);
+    deleteIcon.setAttribute('class', 'fas fa-rectangle-xmark fa-fw fa-lg delete');
+    anchor.append(deleteIcon);
   })
 }
 

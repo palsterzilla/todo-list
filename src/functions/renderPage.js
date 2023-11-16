@@ -60,7 +60,7 @@ const renderContent = (e) => {
     renderList();
 
   } else if (element.hasAttribute('data-deleteProject')) {
-    const project = element.previousElementSibling.getAttribute('data-project');
+    const project = element.parentNode.getAttribute('data-project');
 
     myList.delete(project);
     deleteProject(project);
@@ -175,19 +175,24 @@ const renderProject = () => {
   
   projects.forEach(item => {
     const li = document.createElement('li');
+    li.setAttribute('data-activePage', '');
+    li.setAttribute('data-project', item);
+    li.setAttribute('href', '#');
+    li.textContent = item;
     projectsList.append(li);
-    
-    const a = document.createElement('a');
-    a.textContent = item;
-    a.setAttribute('data-activePage', '');
-    a.setAttribute('data-project', item);
-    a.setAttribute('href', '#');
-    li.append(a);
-  
-    const button = document.createElement('button');
-    button.textContent = 'X';
-    button.setAttribute('data-deleteProject', '');
-    li.append(button);
+
+    const span = document.createElement('span');
+    span.setAttribute('class', 'fa-li');
+    li.append(span);
+
+    const barsIcon = document.createElement('i');
+    barsIcon.setAttribute('class', 'fas fa-bars fa-fw fa-lg');
+    span.append(barsIcon);
+
+    const deleteIcon = document.createElement('i');
+    deleteIcon.setAttribute('data-deleteProject', '');
+    deleteIcon.setAttribute('class', 'fas fa-rectangle-xmark fa-fw fa-lg');
+    li.append(deleteIcon);
   })
 }
 

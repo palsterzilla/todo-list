@@ -54,7 +54,7 @@ const renderContent = (e) => {
   } else if (element.id === 'closeProject') {
     toggleAddProject();
 
-  } else if (element.hasAttribute('data-activePage')) {
+  } else if (element.hasAttribute('data-project')) {
     toggleTaskBtn(e);
     toggleActivePage(e);
     renderList();

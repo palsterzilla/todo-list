@@ -27,17 +27,17 @@ const renderItem = (e) => {
 const renderContent = (e) => {
   const element = e.target;
 
-  if (element.id === 'navHome') {
+  if (element.getAttribute('data-project') === 'home') {
     toggleTaskBtn(e);
     toggleActivePage(e);
     renderList();
 
-  } else if (element.id === 'navToday') {
+  } else if (element.getAttribute('data-project') === 'today') {
     toggleTaskBtn(e);
     toggleActivePage(e);
     renderList();
 
-  } else if (element.id === 'navWeek') {
+  } else if (element.getAttribute('data-project') === 'week') {
     toggleTaskBtn(e);
     toggleActivePage(e);
     renderList();
@@ -75,12 +75,13 @@ const toggleTaskBtn = (e) => {
   const element = e.target;
   const taskButton = document.getElementById('showAdd');
 
-  if (element.id === 'navToday' || element.id === 'navWeek') {
-    taskButton.classList.add('hidden')
-        
-  } else  {
+  if (element.getAttribute('data-project') === 'today' || 
+      element.getAttribute('data-project') === 'week') {
+        taskButton.classList.add('hidden') 
+  }
+  
+  else  {
     taskButton.classList.remove('hidden')
-
   }
 }
 
@@ -95,6 +96,7 @@ const toggleAddProject = () => {
 const toggleActivePage = (e) => {
   const element = e.target;
   const activePage = document.querySelector('.active[data-activePage]');
+  const currPage = element.closest('[data-activePage]');
   const homePage = document.getElementById('navHome');
   
   activePage.classList.remove('active');
@@ -103,7 +105,7 @@ const toggleActivePage = (e) => {
     homePage.classList.add('active');
     
   } else  {
-    element.classList.add('active');
+    currPage.classList.add('active');
 
   } 
 }
@@ -198,7 +200,7 @@ const renderProject = () => {
 
 const renderList = () => {
   const activePage = document.querySelector('.active[data-activePage]');
-  const project = activePage.getAttribute("data-project");
+  const project = activePage.getAttribute('data-project');
   let items;
 
   const defaultList = myList.read();
@@ -206,13 +208,13 @@ const renderList = () => {
   const weekList = myList.readWeek();
   const projectsList = myList.readProject(project);
   
-  if (activePage.textContent === 'Home') {
+  if (activePage.getAttribute('data-project') === 'home') {
     items = defaultList;
 
-  } else if (activePage.textContent === 'Today') {
+  } else if (activePage.getAttribute('data-project') === 'today') {
     items = todayList;
 
-  } else if (activePage.textContent === 'Week') {
+  } else if (activePage.getAttribute('data-project') === 'week') {
     items = weekList;
 
   } else {

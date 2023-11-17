@@ -7,102 +7,84 @@
   <script src="https://kit.fontawesome.com/9dc98241b9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-   <div class="container">
-     <div class="dummy">
+  <div class="container">
+    <div class="dummy">
       <div>
         <ul>
           <li>
-            <a href="">
-              <img src="./assets/icons/user.png" alt="user icon">
-            </a>
+            <a href=""><img src="./assets/icons/user.png" alt="user icon"></a>
           </li>
           <li>
-            <a href="">
-              <img class="check" src="./assets/icons/check.png" alt="check icon">
-            </a>
+            <a href=""><img class="check" src="./assets/icons/check.png" alt="check icon"></a>
           </li>
           <li>
-            <a href="">
-              <img src="./assets/icons/calendar.png" alt="calendar icon">
-            </a>
+            <a href=""><img src="./assets/icons/calendar.png" alt="calendar icon"></a>
           </li>
           <li>
-            <a href="">
-              <img src="./assets/icons/maps.png" alt="maps icon">
-            </a>
+            <a href=""><img src="./assets/icons/maps.png" alt="maps icon"></a>
           </li>
           <li>
-            <a href="">
-              <img src="./assets/icons/search.png" alt="search icon">
-            </a>
+            <a href=""><img src="./assets/icons/search.png" alt="search icon"></a>
           </li>
         </ul>
       </div>
       <div>
         <ul>
           <li>
-            <a href="">
-              <img src="./assets/icons/refresh.png" alt="refresh icon">
-            </a>
+            <a href=""><img src="./assets/icons/refresh.png" alt="refresh icon"></a>
           </li>
           <li>
-            <a href="">
-              <img src="./assets/icons/cowbell.png" alt="bell icon">
-            </a>
+            <a href=""><img src="./assets/icons/cowbell.png" alt="bell icon"></a>
           </li>
           <li>
-            <a href="">
-              <img src="./assets/icons/interrogation.png" alt="question icon">
-            </a>
+            <a href=""><img src="./assets/icons/interrogation.png" alt="question icon"></a>
           </li>
         </ul>
       </div>
-     </div>
-     <div class="sidebar" id="sidebar">
-        <div class="top">
-          <ul class="default-projects-list">
-            <li><a id="navHome" href="#" data-activePage class="active home" data-project="home">
-              <i class="fas fa-inbox fa-fw fa-lg" data-project="home"></i>
-              <span data-project="home">Home</span>
-            </a></li>
-            <li><a class="today" id="navToday" href="#" data-activePage data-project="today">
-              <i class="fas fa-calendar-day fa-fw fa-lg" data-project="today"></i>
-              <span data-project="today">Today</span>
-            </a></li>
-            <li><a class="week" id="navWeek" href="#" data-activePage data-project="week">
-              <i class="fas fa-calendar-week fa-fw fa-lg" data-project="week"></i>
-              <span data-project="week">Week</span>
-            </a></li>
-          </ul>
-        </div>
-        <div class="div-solid"></div>
-        <div class="bottom">
-          <h1>Lists</h1>
-          <ul class="projects-list" id="projectsList"></ul>
-          <button id="showAddProject">+ Add Project</button>
-          <div class="add-project hidden" id="addProject">
-            <input id="projectTitle" type="text">
-            <div class="buttons">
-              <button id="submitProject">ADD</button>
-              <button id="closeProject">CLOSE</button>
-            </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+      <div class="top">
+        <ul class="default-projects-list">
+          <li><a id="navHome" href="#" data-activePage class="active home" data-project="home">
+            <i class="fas fa-inbox fa-fw fa-lg" data-project="home"></i>
+            <span data-project="home">Home</span>
+          </a></li>
+          <li><a class="today" id="navToday" href="#" data-activePage data-project="today">
+            <i class="fas fa-calendar-day fa-fw fa-lg" data-project="today"></i>
+            <span data-project="today">Today</span>
+          </a></li>
+          <li><a class="week" id="navWeek" href="#" data-activePage data-project="week">
+            <i class="fas fa-calendar-week fa-fw fa-lg" data-project="week"></i>
+            <span data-project="week">Week</span>
+          </a></li>
+        </ul>
+      </div>
+      <div class="div-solid"></div>
+      <div class="bottom">
+        <h1>Lists</h1>
+        <ul class="projects-list" id="projectsList"></ul>
+        <button id="showAddProject">+ Add Project</button>
+        <div class="add-project hidden" id="addProject">
+          <input id="projectTitle" type="text">
+          <div class="buttons">
+            <button id="submitProject">ADD</button>
+            <button id="closeProject">CLOSE</button>
           </div>
         </div>
-     </div>
-   
-     <div class="content">
+      </div>
+    </div>
+  
+    <div class="content">
       <div class="fixed">
-        <h1>Home</h1>
+        <h1>TODO LIST</h1>
         <button class="" type="button" id="showAdd">+ Add Task</button>
       </div>
-       <div class="scrollable">
-         <section>
-           <ul id="todoList"></ul>
-         </section>
-       </div>
-     </div>
-
-   </div>
+      <div class="scrollable">
+        <ul class="todo-list" id="todoList"></ul>
+      </div>
+    </div>
+  </div>
 
   <div class="modal hidden" id="addModal">
     <button id="closeAdd">⨉</button>

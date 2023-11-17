@@ -28,6 +28,12 @@ body {
   background-size: 100% 100%;
 }
 
+.vertical {
+  border-left: 2px solid rgba(0, 0, 0, 0.1);
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
 .container {
   display: flex;
   background-color: rgb(255,255,255);
@@ -82,10 +88,8 @@ i {
 }
 
 .sidebar {
-  border-right: 2px solid rgba(0,0,0, 0.1);
   padding-top: 20px;
   padding-left: 1em;
-  padding-right: 1em;
   width: 15em;
 }
 
@@ -163,7 +167,6 @@ i.delete {
   border-radius: 10px;
   flex: 1;
   padding-top: 20px;
-  padding-left: 1em;
 }
 
 .fixed h1 {
@@ -219,4 +222,13 @@ i.delete {
 
 .view i:hover {
   filter: invert(58%) sepia(50%) saturate(4842%) hue-rotate(205deg) brightness(102%) contrast(91%);
+}
+
+
+/* template divs */
+.template {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

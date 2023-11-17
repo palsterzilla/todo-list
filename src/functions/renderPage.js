@@ -239,44 +239,45 @@ const renderList = () => {
     const isDone = item.isDone;
 
     const li = document.createElement('li');
-    // li.classList.add('list');
+    li.classList.add('list');
     li.setAttribute('data-id', id);
     ul.append(li);
   
     const wrapper = document.createElement('div');
-    // wrapper.classList.add('view');
+    wrapper.classList.add('view');
     li.append(wrapper);
   
     const isDoneCheck = document.createElement('input');
-    // isDoneCheck.classList.add('toggle');
+    isDoneCheck.classList.add('done-check');
     isDoneCheck.setAttribute('type', 'checkbox');
     isDoneCheck.setAttribute('data-toggle', '');
     isDoneCheck.checked = isDone;
     wrapper.append(isDoneCheck);
   
     const titleLabel = document.createElement('div');
+    titleLabel.setAttribute('class', 'title');
     titleLabel.textContent = title;
     wrapper.append(titleLabel);
 
     const detailDiv = document.createElement('div');
+    detailDiv.setAttribute('class', 'details');
     detailDiv.textContent = 'DETAILS';
     detailDiv.setAttribute('data-details', '');
     wrapper.append(detailDiv);
 
     const deadLine = document.createElement('div');
+    deadLine.setAttribute('class', 'duedate');
     deadLine.textContent = format(new Date(due), 'MMM do');
     wrapper.append(deadLine);
   
-    const editButton = document.createElement('button');
-    // editButton.classList.add('edit');
+    const editButton = document.createElement('i');
+    editButton.setAttribute('class', 'fas fa-pen-to-square fa-fw fa-lg');
     editButton.setAttribute('data-edit', '');
-    editButton.textContent = 'EDIT';
     wrapper.append(editButton);
 
-    const deleteButton = document.createElement('button');
-    // deleteButton.classList.add('destroy');
+    const deleteButton = document.createElement('i');
+    deleteButton.setAttribute('class', 'fas fa-trash fa-fw fa-lg');
     deleteButton.setAttribute('data-destroy', '');
-    deleteButton.textContent = 'DELETE';
     wrapper.append(deleteButton);
   })
 }

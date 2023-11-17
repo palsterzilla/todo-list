@@ -135,6 +135,12 @@ i.delete {
   margin-left: auto;
 }
 
+.add-project {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .bottom button,
 .fixed button {
   background-color: rgb(242,242,242);

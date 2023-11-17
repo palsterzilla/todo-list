@@ -61,16 +61,16 @@ body {
   justify-content: center;
 }
 
-.dummy img.check {
-  filter: invert(58%) sepia(50%) saturate(4842%) hue-rotate(205deg) brightness(102%) contrast(91%);
-}
-
 .dummy img {
   width: 25px;
   height: auto;
   filter: invert(62%) sepia(10%) saturate(108%) hue-rotate(182deg) brightness(93%) contrast(95%);
 }
 
+.dummy img:hover {
+  filter: invert(58%) sepia(50%) saturate(4842%) hue-rotate(205deg) brightness(102%) contrast(91%);
+  transform: scale(1.2)
+}
 
 /* sidebar */
 i {

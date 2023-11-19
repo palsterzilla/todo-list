@@ -95,22 +95,28 @@
   </div>
 
   <div class="modal hidden" id="addModal">
-    <button id="closeAdd">⨉</button>
-    <form id="addForm">
+    <div class="header">
       <h2>Create new task</h2>
+      <i id="closeAdd" class="fas fa-xmark fa-fw fa-lg"></i>
+    </div>
+    <form id="addForm">
       <input id="addTitle" type="text" placeholder="Title: Be happy" max="50" required>
       <input id="addDetail" type="text" placeholder="Details: personal, home" max="50" required>
-  
-      <label for="addDue">Due Date:</label>
-      <input id="addDue" type="date" required>
+      
+      <div class="due">
+        <label for="addDue">Due Date:</label>
+        <input id="addDue" type="date" required>
+      </div>
       
       <div>Priority:</div>
-      <input id="addLow" type="radio" name="add_priority" value="Low" required>
-      <label for="addLow">LOW</label>
-      <input id="addMedium" type="radio" name="add_priority" value="Medium">
-      <label for="addMedium">MEDIUM</label>
-      <input id="addHigh" type="radio" name="add_priority" value="High">
-      <label for="addHigh">HIGH</label>
+      <div class="priority">
+        <input id="addLow" type="radio" name="add_priority" value="Low" required>
+        <label for="addLow">LOW</label>
+        <input id="addMedium" type="radio" name="add_priority" value="Medium">
+        <label for="addMedium">MEDIUM</label>
+        <input id="addHigh" type="radio" name="add_priority" value="High">
+        <label for="addHigh">HIGH</label>
+      </div>
       
       <button type="submit" id="addSubmit">SUBMIT</button>
     </form>

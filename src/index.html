@@ -122,32 +122,32 @@
     </form>
   </div>
 
-  <div class="modal hidden" id="detailsModal" data-detailsModal>
+  <div class="modal modal-details hidden" id="detailsModal" data-detailsModal>
+    <button class="close-btn" id="closeDetails">⨉</button>
     <section>
-      <button id="closeDetails">⨉</button>
       <div>
-        <div id="detailsTitle"></div>
+        <div class="title bold" id="detailsTitle"></div>
         <div id="detailsProject">
-          <span>Project:</span>
+          <span class="bold">Project:</span>
           <span></span>
         </div>
         <div id="detailsPriority">
-          <span>Priority:</span>
+          <span class="bold">Priority:</span>
           <span></span>
         </div>
         <div id="detailsDue">
-          <span>Due Date:</span>
+          <span class="bold">Due Date:</span>
           <span></span>
         </div>
         <div id="detailsDetails">
-          <span>Details:</span>
+          <span class="bold">Details:</span>
           <span></span>
         </div>
     </section>
   </div>
   
   <div class="modal hidden" id="editModal" data-editModal>
-    <button id="closeEdit">⨉</button>
+    <button class="close-btn" id="closeEdit">⨉</button>
     <form action="" id="editForm">
       <input type="hidden" id="editId" name="edit_Id">
       <input type="text" id="editTitle" required>

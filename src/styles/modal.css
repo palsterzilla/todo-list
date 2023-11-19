@@ -1,3 +1,11 @@
+.modal .close-btn {
+  margin-left: auto;
+  border: none;
+  font-size: 25px;
+  background-color: transparent;
+  filter: invert(62%) sepia(10%) saturate(108%) hue-rotate(182deg) brightness(93%) contrast(95%);
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -73,4 +81,18 @@
 
 .hidden {
   display: none;
+}
+
+.modal-details section > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.modal-details .bold {
+  font-weight: bold;
+}
+
+.modal-details .title {
+  font-size: xxx-large;
 }

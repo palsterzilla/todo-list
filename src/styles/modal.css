@@ -13,7 +13,6 @@
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 15px;
-  z-index: 2;
 }
 
 .modal h2 {
@@ -66,4 +65,12 @@
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(3px);
   z-index: 1;
+}
+
+.modal {
+  z-index: 2;
+}
+
+.hidden {
+  display: none;
 }

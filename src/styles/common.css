@@ -21,10 +21,6 @@ i {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
-
 body {
   background-image: url("../assets/imgs/bg.jpg");
   background-repeat: no-repeat;
